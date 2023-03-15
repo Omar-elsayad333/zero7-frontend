@@ -43,6 +43,7 @@
 .imageContainer {
     z-index: 10;
     position: relative;
+    animation: opacity 2s ease-in-out;
 }
 
 .statueImage {
@@ -100,4 +101,9 @@
 @keyframes shadow {
     0%   { box-shadow: none;}
     100% { box-shadow: 0px 0px 40px #D1AE6F;}
+}
+
+@keyframes opacity {
+    0%   { opacity: 0;}
+    100% { opacity: 1;}
 }
