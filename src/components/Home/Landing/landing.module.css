@@ -1,0 +1,103 @@
+.container {
+    width: 100%;
+    height: calc(100vh - 75px);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url('assets/images/background.jpeg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden; 
+    position: relative;
+}
+
+.textContainer {
+    gap: 40px;
+    z-index: 50;
+    display: flex;
+}
+
+.dash {
+    margin-top: 25px;
+}
+
+.textLayout {
+    gap: 10px;
+    position: relative;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+
+.smallText {
+    width: 30px;
+}
+
+.animatedText {
+    bottom: -80px;
+    left: -100px;
+    position: absolute;
+    transform: rotate(270deg);
+}
+
+.imageContainer {
+    z-index: 10;
+    position: relative;
+}
+
+.statueImage {
+    z-index: 1;
+}
+
+.imageBackground {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 115px;
+    left: -65px;
+    z-index: -1;
+    transform: rotate(45deg);
+    background-color: black;
+    border-left: 2px dotted var(--main-color);
+    border-bottom: 2px dotted var(--main-color);
+    animation: shadow 3s ease-in-out 0s infinite alternate;
+}
+
+@media screen and (max-width: 1000px) {
+    .box {
+        width: 100px;
+    }
+
+    .textContainer {
+        top: 25%;
+        position: absolute;
+    }
+
+    .box {
+        position: absolute;
+        right: 15%;
+        bottom: 10%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .textContainer {
+        gap: 20px;
+    }
+
+    .animatedText {
+        bottom: -80px;
+        left: -85px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .textContainer {
+        gap: 20px;
+    }
+}
+
+@keyframes shadow {
+    0%   { box-shadow: none;}
+    100% { box-shadow: 0px 0px 40px #D1AE6F;}
+}
