@@ -20,7 +20,7 @@ const Landing: React.FC = () => {
                             We Are
                         </Typography>
                     </div>
-                    <Typography maxWidth={300} variant={'h5'} color={'secondary'}>
+                    <Typography data-aos="flip-left" data-aos-duration="1000" maxWidth={300} variant={'h5'} color={'secondary'}>
                         Be creative like as an omar fed lbp lk
                         klfjio fjseee  kjjfja  k.
                     </Typography>

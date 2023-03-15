@@ -1,6 +1,6 @@
-import logo from 'assets/images/logo.png'
 import { colors } from 'styles/colors'
 import style from './navbar.module.css'
+import logo from 'assets/images/logo.png'
 
 // MUI
 import Typography from '@mui/material/Typography'
@@ -8,8 +8,8 @@ import Typography from '@mui/material/Typography'
 const Navbar: React.FC = () => {
     return (
         <div className={`${style.container} grid`}>
-            <img src={logo} width={100} alt='Zero7' /> 
-            <ul className={style.menuList}>
+            <img data-aos="fade-right" data-aos-duration="1000" src={logo} width={100} alt='Zero7' /> 
+            <ul className={style.menuList} data-aos="fade-left" data-aos-duration="1000">
                 <li className={style.link}>
                     <Typography variant={'h4'} color='secondary' fontWeight={700} >
                         Home
