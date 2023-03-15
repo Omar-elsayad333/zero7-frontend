@@ -1,0 +1,39 @@
+.container {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #040404;
+    border-bottom: 1px solid var(--main-color);
+}
+
+.menuList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+@media screen and (max-width: 900px) {
+    .menuList {
+        display: none;
+    }
+}
+
+li {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link > :hover {
+    color: var(--main-color);
+    fill: var(--main-color);
+}
+
+.link > :hover {
+    color: var(--main-color);
+    fill: var(--main-color);
+}

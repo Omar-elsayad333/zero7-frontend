@@ -1,0 +1,17 @@
+.container {
+    width: '100%';
+    height: 100vh;
+    background  : var(--background-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.topLayer {
+    top: 0;
+    position: absolute;
+}
+
+.bottomLayer {
+    bottom: 0;
+    position: absolute;
+}
