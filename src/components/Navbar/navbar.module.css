@@ -37,3 +37,20 @@ li {
     color: var(--main-color);
     fill: var(--main-color);
 }
+
+.mobileNav {
+    display: none;
+}
+
+.navWraper {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 900px) {
+    .mobileNav {
+        display: block
+    }
+}
