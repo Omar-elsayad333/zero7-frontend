@@ -1,6 +1,7 @@
 import style from './landing.module.css'
 import { Typography } from '@mui/material'
 import landingImage from 'assets/images/landing.png'
+import PrimaryButton from 'components/Buttons/PrimaryButton'
 
 const Landing: React.FC = () => {
     return (
@@ -24,6 +25,7 @@ const Landing: React.FC = () => {
                         Be creative like as an omar fed lbp lk
                         klfjio fjseee  kjjfja  k.
                     </Typography>
+                    <PrimaryButton content='new collection' />
                 </div>
             </div>
             <div className={style.box}>
