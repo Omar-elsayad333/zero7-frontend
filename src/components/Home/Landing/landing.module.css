@@ -22,7 +22,7 @@
 }
 
 .textLayout {
-    gap: 10px;
+    gap: 15px;
     position: relative;
     display: flex;
     align-items: start;

@@ -1,0 +1,17 @@
+.primaryButton {
+    font-size: 18px;
+    padding: 16px 32px;
+    text-align: center;
+    border-radius: 15px;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: var(--dark-color);
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    transition: .2s;
+}
+
+.primaryButton:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}

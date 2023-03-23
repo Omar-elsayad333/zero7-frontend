@@ -12,6 +12,7 @@ body {
     --primary-color : #D1AE6F;
     --secondary-color : #A9A9A9;
     --error-color: #AA0404;
+    --dark-color: #151515;
     --background-color: linear-gradient(112.25deg, #282828 0%, #0C0C0C 100%);
 }
 
