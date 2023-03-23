@@ -3,6 +3,8 @@ import 'aos/dist/aos.css';
 import { useEffect } from 'react'
 import ThemeApp from 'styles/theme'
 import { Routes } from 'routes/Routes' 
+import 'bootstrap/dist/js/bootstrap.min.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import { CartProvider } from 'contexts/cartContext'
 // import { userProvider } from 'contexts/userContext'
 import { 

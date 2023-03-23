@@ -59,8 +59,8 @@
     z-index: -1;
     transform: rotate(45deg);
     background-color: black;
-    border-left: 2px dotted var(--main-color);
-    border-bottom: 2px dotted var(--main-color);
+    border-left: 2px dotted var(--primary-color);
+    border-bottom: 2px dotted var(--primary-color);
     animation: shadow 3s ease-in-out 0s infinite alternate;
 }
 
@@ -100,7 +100,7 @@
 
 @keyframes shadow {
     0%   { box-shadow: none;}
-    100% { box-shadow: 0px 0px 40px #D1AE6F;}
+    100% { box-shadow: 0px 0px 40px var(--primary-color);}
 }
 
 @keyframes opacity {
