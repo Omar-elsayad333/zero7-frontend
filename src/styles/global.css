@@ -9,10 +9,14 @@ body {
 }
 
 :root{
-    --main-color : #D1AE6F;
-    --subMain-color : #A9A9A9;
-    --background-color: linear-gradient(112.25deg, #282828 0%, #0C0C0C 100%);
+    --primary-color : #D1AE6F;
+    --secondary-color : #A9A9A9;
     --error-color: #AA0404;
+    --background-color: linear-gradient(112.25deg, #282828 0%, #0C0C0C 100%);
+}
+
+a {
+    text-decoration-color: var(--secondary-color);
 }
 
 .grid {

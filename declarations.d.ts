@@ -1,4 +1,4 @@
-// global.d.ts
+// global declarations
 
 declare module '*.svg' {
     const content: string;
@@ -6,6 +6,11 @@ declare module '*.svg' {
 }
 
 declare module '*.png' {
+    const content: string;
+    export default content;
+}
+
+declare module '*.jpg' {
     const content: string;
     export default content;
 }
@@ -24,21 +29,21 @@ declare module '*.module.css' {
 
 declare module 'aos' {
     interface AosOptions {
-      // Add any custom options here
+        // Add any custom options here
     }
   
     interface Aos {
-      init(options?: AosOptions): void;
-      refresh(): void;
+        init(options?: AosOptions): void;
+        refresh(): void;
     }
   
     interface HTMLElement {
-      dataset: DOMStringMap & {
-        aos?: string;
-        // Add any other custom data attributes here
-      };
+        dataset: DOMStringMap & {
+            aos?: string;
+            // Add any other custom data attributes here
+        };
     }
   
     const aos: Aos;
     export default aos;
-  }
+}
