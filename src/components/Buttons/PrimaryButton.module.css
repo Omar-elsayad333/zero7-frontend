@@ -4,14 +4,14 @@
     text-align: center;
     border-radius: 15px;
     font-weight: 700;
-    text-transform: capitalize;
-    color: var(--dark-color);
-    background-color: var(--primary-color);
-    border: 2px solid var(--primary-color);
     transition: .2s;
+    text-transform: capitalize;
+    color: var(--secondary-color);
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
 }
 
 .primaryButton:hover {
-    background-color: transparent;
-    color: var(--primary-color);
+    color: var(--dark-color);
+    background-color: var(--primary-color);
 }

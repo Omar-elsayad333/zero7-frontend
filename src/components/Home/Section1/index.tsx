@@ -14,12 +14,12 @@ import { Carousel } from 'react-bootstrap';
 const Section1: React.FC = () => {
     return (
         <div className={`${style.container} grid`}>
-            <img src={topLayer} className={style.topLayer} width={'100%'} />
+            <img src={topLayer} className={style.topLayer} width={'100%'} alt='Top layer' />
             <div className={style.titleBox}>
                 <Typography color={'primary'} variant='h2'>
                     Our Fashion
                 </Typography>
-                <a href="">              
+                <a href="/">              
                     <Typography color={'secondary'} variant='h4'>
                         Discover our latest fashion
                     </Typography>
@@ -30,7 +30,7 @@ const Section1: React.FC = () => {
                     <img
                         src={image1}
                         alt="First slide"
-                        className="d-block w-100"
+                        className='w-100'
                     />
                     <Carousel.Caption>
                         <h3>First slide label</h3>
@@ -41,7 +41,7 @@ const Section1: React.FC = () => {
                     <img
                         src={image2}
                         alt="Second slide"
-                        className="d-bloawrck w-100"
+                        className='w-100'
                     />
                     <Carousel.Caption>
                         <h3>Second slide label</h3>
@@ -52,7 +52,7 @@ const Section1: React.FC = () => {
                     <img
                         src={image3}
                         alt="Third slide"
-                        className="d-block w-100"
+                        className='w-100'
                     />
                     <Carousel.Caption>
                         <h3>Third slide label</h3>
@@ -62,7 +62,7 @@ const Section1: React.FC = () => {
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
-            <img src={bottomLayer} className={style.bottomLayer} width={'100%'} />
+            <img src={bottomLayer} className={style.bottomLayer} width={'100%'} alt='Bottom layer' />
         </div>
     );
 }

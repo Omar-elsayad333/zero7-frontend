@@ -1,4 +1,4 @@
-import style from './PrimaryButton.module.css'
+import style from './primaryButton.module.css'
 
 type Props = {
     content: string;
@@ -11,5 +11,5 @@ const PrimaryButton: React.FC<Props> = ({ content }) => {
         </button>
     )
 }
- 
+
 export default PrimaryButton;
