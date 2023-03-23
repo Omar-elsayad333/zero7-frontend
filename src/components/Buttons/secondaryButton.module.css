@@ -1,0 +1,28 @@
+.secondaryButton {
+    font-size: 18px;
+    padding: 16px 32px;
+    text-align: center;
+    border-radius: 15px;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: var(--dark-color);
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    transition: .2s;
+    animation: secondaryButtonAnimation 2s
+}
+
+.secondaryButton:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+@keyframes secondaryButtonAnimation {
+    from {
+        background-color: transparent;
+    }
+
+    to {
+        background-color: var(--primary-color);
+    }
+}

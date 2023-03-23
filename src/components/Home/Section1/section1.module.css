@@ -21,16 +21,9 @@
 }
 
 .sliderContainer {
-    width: 60%;   
-}
-
-.sliderImage {
-    width: 760px;
-    height: 500px;
-    max-width: 100%;
-    background-image: url('assets/images/slider1.jpg');
-    background-size: cover;
-    background-position: center;
+    width: 60%;
+    overflow: hidden;
+    border-radius: 20px;
 }
 
 .topLayer {
