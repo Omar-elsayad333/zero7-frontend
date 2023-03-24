@@ -1,13 +1,17 @@
 import { colors } from 'styles/colors'
 import style from './navbar.module.css'
 import logo from 'assets/images/logo.png'
+import useNavbar from 'container/useNavbar'
 
 // MUI
 import Typography from '@mui/material/Typography'
 
 const Navbar: React.FC = () => {
+
+    useNavbar()
+
     return (
-        <div className={`${style.container} grid`}>
+        <div className={`${style.container} grid`} id='navbar'>
             <img data-aos="fade-right" data-aos-duration="1000" src={logo} width={100} alt='Zero7' /> 
             <ul className={style.menuList} data-aos="fade-left" data-aos-duration="1000">
                 <li className={style.link}>

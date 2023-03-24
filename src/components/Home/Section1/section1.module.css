@@ -1,8 +1,8 @@
 .container {
     width: '100%';
     gap: 50px;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 150px;
+    padding-bottom: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
