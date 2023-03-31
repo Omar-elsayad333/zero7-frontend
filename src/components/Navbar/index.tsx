@@ -1,7 +1,7 @@
 import { colors } from 'styles/colors'
 import style from './navbar.module.css'
 import logo from 'assets/images/logo.png'
-import useNavbar from 'container/useNavbar'
+import useNavbar from 'containers/useNavbar'
 
 // MUI
 import Typography from '@mui/material/Typography'

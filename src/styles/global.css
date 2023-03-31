@@ -13,7 +13,7 @@ body {
     --secondary-color : #A9A9A9;
     --error-color: #AA0404;
     --dark-color: #151515;
-    --background-color: linear-gradient(112.25deg, #282828 0%, #0C0C0C 100%);
+    --background-color: linear-gradient(-45deg, #0C0C0C 0%, #282828 100%);
 }
 
 a {

@@ -1,4 +1,4 @@
-export const colors = {
+export const colors: any = {
     primary: {
         main: '#D1AE6F',
         light: '#ffd700',
@@ -12,9 +12,9 @@ export const colors = {
         contrastText: '#3F72A4',
     },
     error: {
-        main: '#9C1313',
-        light: '#9C1313',
-        dark: '#9C1313',
+        main: '#AA0404',
+        light: '#AA0404',
+        dark: '#AA0404',
         contrastText: '#E8F3FF',
     },
     success: {

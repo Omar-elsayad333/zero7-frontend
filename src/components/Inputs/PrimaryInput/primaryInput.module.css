@@ -1,0 +1,47 @@
+.container {
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.primrayInput {
+    width: 250px;
+    padding: 15px 20px;
+    color: var(--secondary-color);
+    background-color: transparent;
+    transition: .5s;
+    border: none;
+    border-radius: 20px;
+    border-bottom: var(--primary-color) 2px solid;
+}
+
+.primrayInput:hover {
+    box-shadow: 0px 10px 15px -12px var(--primary-color);
+}
+
+.primrayInput:focus {
+    outline: none;
+    box-shadow: 0px 10px 15px -12px var(--primary-color);
+}
+
+.primrayInput::placeholder {
+    font-size: 14px;
+}
+
+.helperText {
+    padding-left: 20px;
+}
+
+@media(max-width: 300px) {
+    .primrayInput {
+        width: 200px
+    }
+}
+
+@media(max-width: 250px) {
+    .primrayInput {
+        width: 150px
+    }
+}

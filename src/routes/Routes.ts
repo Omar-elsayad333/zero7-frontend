@@ -1,7 +1,7 @@
 export class Routes {
     // Log pages //
     static login = 'login'
-    static signup = 'signup'
+    static register = 'register'
     static resetPassword = 'reset-password'
     
     

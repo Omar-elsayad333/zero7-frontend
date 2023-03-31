@@ -31,19 +31,19 @@ declare module 'aos' {
     interface AosOptions {
         // Add any custom options here
     }
-  
+
     interface Aos {
         init(options?: AosOptions): void;
         refresh(): void;
     }
-  
+
     interface HTMLElement {
         dataset: DOMStringMap & {
             aos?: string;
             // Add any other custom data attributes here
         };
     }
-  
+
     const aos: Aos;
     export default aos;
 }
