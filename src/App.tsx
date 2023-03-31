@@ -19,7 +19,7 @@ import Home from 'pages/home';
 import Shop from 'pages/shop';
 import Cart from 'pages/cart';
 import Login from 'pages/login';
-import SignUp from 'pages/signUp';
+import SignUp from 'pages/register';
 import NotAuth from 'pages/notAuth';
 import Profile from 'pages/profile';
 import AboutUs from 'pages/aboutUs';
@@ -34,7 +34,6 @@ import DashboardLayout from 'layouts/dashboardLayout';
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route>
-
             {/* MAIN APP PAGES */}
             <Route path={Routes.home} element={<AppLayout />}>
                 <Route index element={<Home />} />
@@ -49,7 +48,7 @@ const router = createBrowserRouter(
 
                 {/* APP LOG PAGES */}
                 <Route path={Routes.login} element={<Login />} />
-                <Route path={Routes.signup} element={<SignUp />} />
+                <Route path={Routes.register} element={<SignUp />} />
                 <Route path={Routes.resetPassword} element={<ResetPassword />} />
             </Route>
 

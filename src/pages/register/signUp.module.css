@@ -1,0 +1,41 @@
+@property --a {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+.container {
+    --a:0deg;
+    gap: 60px;
+	height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100vh - 75px);
+	animation: gradient 15s ease alternate infinite;
+	background: linear-gradient(var(--a), #0C0C0C 0%, #282828 100%);
+}
+
+.buttonsContainer {
+    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes gradient {
+	0% {
+        --a:45deg;
+	}   
+    25% {
+        --a:135deg;
+    }
+    50% {
+        --a:225deg;
+    }
+    100% {
+        --a:315deg;
+	}
+}
