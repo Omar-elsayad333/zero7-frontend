@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-    baseURL: 'https://api.example.com/',
+    baseURL: 'https://zero7-backend.vercel.app/api/',
     headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+        'Authorization': `Bearer ${localStorage.getItem('zero7_token')}` 
     }
 });
 

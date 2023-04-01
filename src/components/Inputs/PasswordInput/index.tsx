@@ -10,7 +10,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-const PasswordInput: React.FC<PasswordInputProps> = ({ placeholder, helperText, value, showHandler, show, setValue, error }) => {
+const PasswordInput: React.FC<PasswordInputProps> = ({ name, placeholder, helperText, value, showHandler, show, setValue, error }) => {
 
     const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
@@ -20,12 +20,13 @@ const PasswordInput: React.FC<PasswordInputProps> = ({ placeholder, helperText, 
         <FormControl>
             <OutlinedInput
                 autoComplete='off'
+                name={name}
                 error={error} 
+                value={value}
                 sx={style.root}
                 placeholder={placeholder}
                 type={show ? 'text' : 'password'}
-                value={value}
-                onChange={e => setValue(e.target.value)}
+                onChange={e => setValue(e)}
                 endAdornment={
                     <InputAdornment position="end">
                         <IconButton
@@ -38,7 +39,10 @@ const PasswordInput: React.FC<PasswordInputProps> = ({ placeholder, helperText, 
                     </InputAdornment>
                 }
             />
-            <InputHelperText content={helperText} type='error' />
+            {
+                helperText &&
+                <InputHelperText content={helperText} type='error' />
+            }
         </FormControl>
     );
 }

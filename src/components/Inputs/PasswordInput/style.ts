@@ -7,7 +7,7 @@ export const style = {
         padding: '15px 20px',
         fontSize: '14px',
         fontWeight: '400',
-        color: 'rgba(63, 114, 164, 1)',
+        color: colors.secondary.main,
         borderRadius: '20px',
         backgroundColor: 'transparent',
         border: 'none',
@@ -27,6 +27,7 @@ export const style = {
             boxShadow: `0px 10px 15px -12px ${colors.primary.main}`,
         },
         '&:hover .MuiOutlinedInput-notchedOutline': {
+            borderBottom: `2px ${colors.primary.main} solid`,
             boxShadow: `0px 10px 15px -12px ${colors.primary.main}`,
         },
         '.Mui-error': {
@@ -36,7 +37,7 @@ export const style = {
         '.MuiSvgIcon-root': {
             color: colors.secondary.main
         },
-        '@media(max-width: 300px)': {
+        '@media(max-width: 350px)': {
             width: '200px',
         },
         '@media(max-width: 250px)': {

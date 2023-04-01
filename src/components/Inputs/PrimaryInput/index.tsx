@@ -1,9 +1,7 @@
 import { colors } from 'styles/colors'
 import style from './primaryInput.module.css'
 import { InputProps } from 'interfaces/inputInterface'
-
-// MUI
-import Typography from '@mui/material/Typography';
+import InputHelperText from 'components/shared/InputHelperText';
 
 const PrimaryInput: React.FC<InputProps> = ({ name, type, value, error, placeholder, setValue, helperText }) => {
     return (
@@ -14,19 +12,13 @@ const PrimaryInput: React.FC<InputProps> = ({ name, type, value, error, placehol
                 value={value} 
                 placeholder={placeholder}
                 className={style.primrayInput} 
-                onChange={(e) => setValue(e.target.value)}
+                onChange={(e) => setValue(e)}
                 style={{borderColor: error ? colors.error.main : colors.primary.main}}
             />
-            <label className={style.helperText} htmlFor="">
-                <Typography 
-                    variant={'h6'} 
-                    color={'error'} 
-                    fontWeight={700} 
-                    textTransform={'capitalize'}
-                > 
-                    {helperText}
-                </Typography>
-            </label>
+            {
+                helperText &&
+                <InputHelperText content={helperText} type='error' />
+            }
         </div>
     );
 }
