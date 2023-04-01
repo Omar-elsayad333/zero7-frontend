@@ -3,7 +3,7 @@ import { SignUpState, SignUpAction } from 'interfaces/registerInterface'
 export const registerReducer = (state: SignUpState, action: SignUpAction): SignUpState => {
     switch (action.type) {
         case 'field':
-            let { field, value } = action;
+            const { field, value } = action;
             return {
                 ...state,
                 fields: {
@@ -17,6 +17,17 @@ export const registerReducer = (state: SignUpState, action: SignUpAction): SignU
                     },
                 },
             };
+        case 'showPass':
+            return {
+                ...state,
+                fields: {
+                    ...state.fields,
+                    [action.field]: {
+                        ...state.fields[action.field],
+                        show: !state.fields[action.field]['show']
+                    }
+                }
+            }
         case 'submit':
             return {
                 ...state,
@@ -32,11 +43,17 @@ export const registerReducer = (state: SignUpState, action: SignUpAction): SignU
                 success: true
             };
         case 'error':
+            const { errorField, error } = action;
             return {
                 ...state,
-                loading: false,
-                error: action.error,
-                success: false
+                fields: {
+                    ...state.fields,
+                    [errorField]: {
+                        ...state.fields[errorField],
+                        error: true,
+                        helperText: error,
+                    },
+                },
             };
         default:
             return state;

@@ -1,15 +1,8 @@
 interface InputProps {
     value: string;
+    show?: boolean;
     error: boolean;
-    lenght: number;
-    helperText: string;
-}
-
-interface PassInputProps {
-    value: string;
-    show: boolean;
-    error: boolean;
-    lenght: number;
+    length: number;
     helperText: string;
 }
 
@@ -17,9 +10,9 @@ export interface SignUpState {
     fields: {
         name: InputProps;
         email: InputProps;
-        password: PassInputProps;
-        confirmPassword: PassInputProps;
-    }
+        password: InputProps;
+        confirmPassword: InputProps;
+    };
     loading: boolean;
     error: string | null;
     success: boolean;
@@ -27,34 +20,35 @@ export interface SignUpState {
 
 export type SignUpAction =
     | { type: 'field'; field: keyof SignUpState['fields']; value: string }
+    | { type: 'showPass'; field: keyof SignUpState['fields'] }
     | { type: 'submit' }
     | { type: 'success' }
-    | { type: 'error'; error: string };
+    | { type: 'error'; errorField: keyof SignUpState['fields']; error: string };
 
 export const registerInitialState: SignUpState = {
     fields: {
         name: {
             value: '',
-            lenght: 0,
+            length: 0,
             error: false,
             helperText: ''
         },
         email: {
             value: '',
-            lenght: 0,
+            length: 0,
             error: false,
             helperText: ''
         },
         password: {
             value: '',
-            lenght: 0,
+            length: 0,
             show: false,
             error: false,
             helperText: ''
         },
         confirmPassword: {
             value: '',
-            lenght: 0,
+            length: 0,
             show: false,
             error: false,
             helperText: ''
