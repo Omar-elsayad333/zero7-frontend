@@ -14,9 +14,7 @@ const useNavbar = () => {
     }, [])
     
     return (
-        {
-            
-        }
+        {}
     );
 }
 

@@ -34,7 +34,7 @@
     padding-left: 20px;
 }
 
-@media(max-width: 300px) {
+@media(max-width: 350px) {
     .primrayInput {
         width: 200px
     }

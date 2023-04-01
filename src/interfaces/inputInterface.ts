@@ -9,6 +9,7 @@ export interface InputProps {
 }
 
 export interface PasswordInputProps {
+    name: string
     value: string;
     show: boolean;
     placeholder: string;
