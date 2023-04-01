@@ -1,7 +1,7 @@
 import { colors } from 'styles/colors'
 import style from './primaryInput.module.css'
 import { InputProps } from 'interfaces/inputInterface'
-import InputHelperText from 'components/shared/InputHelperText';
+import InputHelperText from 'components/shared/InputHelperText'
 
 const PrimaryInput: React.FC<InputProps> = ({ name, type, value, error, placeholder, setValue, helperText }) => {
     return (

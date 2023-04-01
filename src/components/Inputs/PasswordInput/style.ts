@@ -1,6 +1,6 @@
 import { colors } from 'styles/colors'
 
-export const style = {
+export const styles = {
     root: {
         width: '250px',
         height: '56px',

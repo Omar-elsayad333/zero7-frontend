@@ -11,7 +11,7 @@ export interface InputProps {
 export interface PasswordInputProps {
     name: string
     value: string;
-    show: boolean;
+    show?: boolean;
     placeholder: string;
     helperText: string;
     showHandler: Function;

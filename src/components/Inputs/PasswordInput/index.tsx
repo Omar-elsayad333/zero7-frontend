@@ -1,10 +1,10 @@
-import { style } from './style'
+import { styles } from './style'
+import style from './passwordInput.module.css'
 import { PasswordInputProps } from 'interfaces/inputInterface';
 import InputHelperText from 'components/shared/InputHelperText';
 
 // MUI
 import IconButton from '@mui/material/IconButton';
-import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -17,20 +17,21 @@ const PasswordInput: React.FC<PasswordInputProps> = ({ name, placeholder, helper
     };
     
     return (
-        <FormControl>
+        <div className={style.container}>
             <OutlinedInput
                 autoComplete='off'
                 name={name}
                 error={error} 
                 value={value}
-                sx={style.root}
+                sx={styles.root}
                 placeholder={placeholder}
                 type={show ? 'text' : 'password'}
                 onChange={e => setValue(e)}
                 endAdornment={
                     <InputAdornment position="end">
                         <IconButton
-                            onClick={() => showHandler()}
+                            name={name}
+                            onClick={(e) => showHandler(e)}
                             onMouseDown={handleMouseDownPassword}
                             edge="end"
                         >
@@ -43,7 +44,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({ name, placeholder, helper
                 helperText &&
                 <InputHelperText content={helperText} type='error' />
             }
-        </FormControl>
+        </div>
     );
 }
 

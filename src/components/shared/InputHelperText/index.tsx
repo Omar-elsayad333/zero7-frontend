@@ -5,16 +5,9 @@ import { IStyle } from 'styles/IStyle'
 const InputHelperText: React.FC<InputHelperTextProps> = ({ content, type }) => {
 
     const style: IStyle = {
-        color: () => {
-            if(type === 'error') {
-                return colors.error.main
-            } else if(type === 'warrning') {
-                return colors.warning.main
-            } else {
-                return colors.info.main
-            }
-        }
+        color: type === 'error' ? colors.error.main : colors.warning.main
     }
+    
     return (
         <label style={style}>
             {content}
