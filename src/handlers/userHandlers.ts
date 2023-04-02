@@ -5,7 +5,8 @@ export const loginUser = async (data: any) => {
     try {
         const res = await axiosInstance.post(Urls.login, data)
         return res.data
-    } catch (error: any) {
+    } 
+    catch (error: any) {
         return error.response.data.error
     }
 }

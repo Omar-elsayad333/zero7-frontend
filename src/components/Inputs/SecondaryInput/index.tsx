@@ -1,6 +1,6 @@
 import { colors } from 'styles/colors'
 import style from './secondaryInput.module.css'
-import { InputProps } from 'interfaces/inputInterface'
+import { InputProps } from 'interfaces/inputsInterface'
 
 // MUI
 import Typography from '@mui/material/Typography';

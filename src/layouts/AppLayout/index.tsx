@@ -1,9 +1,7 @@
-import Navbar from 'components/Navbar';
-import Footer from 'components/Footer';
+import Navbar from 'components/Navbar'
+import Footer from 'components/Footer'
 import { Outlet } from 'react-router-dom'
 import style from './appLayout.module.css'
-
-// MUI
 
 const AppLayout = () => {
     return (
@@ -20,5 +18,5 @@ const AppLayout = () => {
         </div>
     )
 }
- 
+
 export default AppLayout;

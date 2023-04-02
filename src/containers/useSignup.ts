@@ -66,7 +66,8 @@ const useSignup = () => {
     const collector = () => {
         const data = {
             name: state.fields.name.value,
-            email: state.fields.email.value,
+            email: state.fields.email.value.trim(),
+            phoneNumber: state.fields.phoneNumber.value.trim(),
             password: state.fields.password.value.trim(),
             confirmPassword: state.fields.confirmPassword.value.trim()
         }

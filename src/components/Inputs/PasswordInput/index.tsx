@@ -1,6 +1,6 @@
 import { styles } from './style'
 import style from './passwordInput.module.css'
-import { PasswordInputProps } from 'interfaces/inputInterface';
+import { PasswordInputProps } from 'interfaces/inputsInterface';
 import InputHelperText from 'components/shared/InputHelperText';
 
 // MUI
