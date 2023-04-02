@@ -1,4 +1,6 @@
-import style from './signUp.module.css'
+import { Routes } from 'routes/Routes';
+import { Link } from 'react-router-dom';
+import style from './register.module.css'
 import useSignup from 'containers/useSignup';
 import PrimaryInput from 'components/Inputs/PrimaryInput';
 import PasswordInput from 'components/Inputs/PasswordInput';
@@ -8,14 +10,14 @@ import SecondaryButton from 'components/Buttons/SecondaryButton';
 // MUI
 import Typography from '@mui/material/Typography';
 
-const Register = () => {
+const Register: React.FC = () => {
 
     const { state, actions } = useSignup()
 
     return (
         <div className={`${style.container} grid`}>
             <form onSubmit={actions.handleSubmit} className={style.formContainer} >
-                <Typography variant='h3' fontWeight={700} color='primary'>
+                <Typography variant='h3' textAlign={'center'} fontWeight={700} color='primary'>
                     Sign Up for Zero7
                 </Typography>
                 {state.loading && <Typography variant='h4' color={'warrning'}>loading</Typography>}
@@ -37,6 +39,15 @@ const Register = () => {
                         value={state.fields.email.value}
                         error={state.fields.email.error}
                         helperText={state.fields.email.helperText}
+                    />
+                    <PrimaryInput 
+                        type='number'
+                        name='phoneNumber'
+                        setValue={actions.handleChange}
+                        placeholder='Enter your phone number'
+                        value={state.fields.phoneNumber.value}
+                        error={state.fields.phoneNumber.error}
+                        helperText={state.fields.phoneNumber.helperText}
                     />
                     <PasswordInput 
                         name='password'
@@ -61,11 +72,14 @@ const Register = () => {
                 </div>
                 <div className={style.buttonsContainer}>    
                     <PrimaryButton
+                        type='submit'
                         content='sign up'
                     />
-                    <SecondaryButton
-                        content='log in'
-                    />
+                    <Link to={`/${Routes.login}`}>
+                        <SecondaryButton
+                            content='log in'
+                        />
+                    </Link>
                 </div>
             </form>
         </div>

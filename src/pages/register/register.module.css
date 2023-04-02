@@ -1,0 +1,77 @@
+@property --a {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+.container {
+    --a:0deg;
+    padding-top: 50px;
+    padding-bottom: 50px;
+	min-height: 100vh;
+    display: grid;
+    place-items: center;
+    min-height: calc(100vh - 75px);
+	animation: gradient 15s ease alternate infinite;
+	background: linear-gradient(var(--a), #0C0C0C 0%, #282828 100%);
+}
+
+.formContainer {
+    gap: 90px;
+    padding: 60px 100px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border: solid 2px var(--primary-color);
+}
+
+.inputsContainer {
+    gap: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.buttonsContainer {
+    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+    .formContainer {
+        padding: 50px 80px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .formContainer {
+        padding: 40px 50px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .formContainer {
+        padding: 40px 20px;
+    }
+}
+
+@keyframes gradient {
+	0% {
+        --a:45deg;
+	}   
+    25% {
+        --a:135deg;
+    }
+    50% {
+        --a:225deg;
+    }
+    100% {
+        --a:315deg;
+	}
+}

@@ -1,17 +1,16 @@
-interface InputProps {
-    value: string;
-    show?: boolean;
-    error: boolean;
-    length: number;
-    helperText: string;
-}
+import { 
+    InputStateProps,
+    inputStateInitialValues, 
+    passwordStateInitialValues 
+} from 'interfaces/shared/statesInterfaces'
 
 export interface SignUpState {
     fields: {
-        name: InputProps;
-        email: InputProps;
-        password: InputProps;
-        confirmPassword: InputProps;
+        name: InputStateProps;
+        email: InputStateProps;
+        phoneNumber: InputStateProps;
+        password: InputStateProps;
+        confirmPassword: InputStateProps;
     };
     loading: boolean;
     error: string | null;
@@ -27,32 +26,11 @@ export type SignUpAction =
 
 export const registerInitialState: SignUpState = {
     fields: {
-        name: {
-            value: '',
-            length: 0,
-            error: false,
-            helperText: ''
-        },
-        email: {
-            value: '',
-            length: 0,
-            error: false,
-            helperText: ''
-        },
-        password: {
-            value: '',
-            length: 0,
-            show: false,
-            error: false,
-            helperText: ''
-        },
-        confirmPassword: {
-            value: '',
-            length: 0,
-            show: false,
-            error: false,
-            helperText: ''
-        },
+        name: inputStateInitialValues,
+        email: inputStateInitialValues,
+        phoneNumber: inputStateInitialValues,
+        password: passwordStateInitialValues,
+        confirmPassword: passwordStateInitialValues
     },
     loading: false,
     error: null,

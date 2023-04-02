@@ -1,4 +1,5 @@
 import { colors } from 'styles/colors'
+import { Link } from 'react-router-dom'
 import style from './navbar.module.css'
 import logo from 'assets/images/logo.png'
 import useNavbar from 'containers/useNavbar'
@@ -12,7 +13,9 @@ const Navbar: React.FC = () => {
 
     return (
         <div className={`${style.container} grid`} id='navbar'>
-            <img data-aos="fade-right" data-aos-duration="1000" src={logo} width={100} alt='Zero7' /> 
+            <Link to={'/'}>
+                <img data-aos="fade-right" data-aos-duration="1000" src={logo} width={100} alt='Zero7' /> 
+            </Link>
             <ul className={style.menuList} data-aos="fade-left" data-aos-duration="1000">
                 <li className={style.link}>
                     <Typography variant={'h4'} color='secondary' fontWeight={700} >

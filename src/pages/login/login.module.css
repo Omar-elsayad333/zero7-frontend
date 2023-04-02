@@ -6,7 +6,9 @@
 
 .container {
     --a:0deg;
-	height: 100vh;
+    padding-top: 50px;
+    padding-bottom: 50px;
+	min-height: 100vh;
     display: grid;
     place-items: center;
     min-height: calc(100vh - 75px);

@@ -1,4 +1,4 @@
-import { InputHelperTextProps } from 'interfaces/inputInterface'
+import { InputHelperTextProps } from 'interfaces/inputsInterface'
 import { colors } from 'styles/colors'
 import { IStyle } from 'styles/IStyle'
 
