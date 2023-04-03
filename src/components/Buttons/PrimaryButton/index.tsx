@@ -3,11 +3,16 @@ import style from './primaryButton.module.css'
 type Props = {
     type?: any;
     content: string;
+    fullWidth?: boolean;
 }
 
-const PrimaryButton: React.FC<Props> = ({ content, type = 'button' }) => {
+const PrimaryButton: React.FC<Props> = ({ content, fullWidth, type = 'button' }) => {
     return (
-        <button className={style.primaryButton} type={type}>
+        <button 
+            type={type}
+            className={style.primaryButton} 
+            style={{width: fullWidth ? '100%' : 'static'}}
+        >
             {content}
         </button>
     )

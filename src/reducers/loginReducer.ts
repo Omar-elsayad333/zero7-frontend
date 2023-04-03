@@ -28,6 +28,13 @@ export const loginReducer = (state: LoginState, action: LoginActions): LoginStat
                     }
                 }
             }
+        case 'remeberMe':
+            return {
+                ...state,
+                remeberMe: {
+                    value: !state.remeberMe.value
+                }
+            }
         case 'error': 
             const { errorField, error } = action;
             return {
@@ -41,6 +48,11 @@ export const loginReducer = (state: LoginState, action: LoginActions): LoginStat
                     },
                 },
             };
+        case 'loading':
+            return {
+                ...state,
+                loading: !state.loading
+            }
         default:
             throw new Error('Invalid action type');
     }

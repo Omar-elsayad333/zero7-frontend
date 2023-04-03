@@ -64,10 +64,12 @@ const useSignup = () => {
 
     // Collect data to submit it
     const collector = () => {
+        const encodedPhoneNumber  = encodeURIComponent('+'+state.fields.phoneNumber.value)
+        console.log(encodedPhoneNumber)
         const data = {
             name: state.fields.name.value,
             email: state.fields.email.value.trim(),
-            phoneNumber: state.fields.phoneNumber.value.trim(),
+            phoneNumber: encodedPhoneNumber.trim(),
             password: state.fields.password.value.trim(),
             confirmPassword: state.fields.confirmPassword.value.trim()
         }
