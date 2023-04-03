@@ -5,11 +5,11 @@ import Section2 from "components/Home/Section2";
 import LogoLoading from "components/Loading/LogoLoading";
 
 const Home = () => {
-    const { state } = useUser()
+    const { userState } = useUser()
     return (
         <>
             {
-                state.loading && <LogoLoading />
+                userState.userLoading && <LogoLoading />
             }
             <Landing />
             <Section1 />

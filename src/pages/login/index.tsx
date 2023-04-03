@@ -25,7 +25,7 @@ const Login: React.FC = () => {
             }
             <form onSubmit={actions.handleSubmit} className={style.formContainer} >
                 <Typography variant='h3' textAlign={'center'} fontWeight={700} color='primary'>
-                    Login Up for Zero7
+                    Log in for Zero7
                 </Typography>
                 <div className={style.inputsContainer}>
                     <PrimaryInput 

@@ -8,7 +8,7 @@ interface User {
 
 export interface UserState {
     user: User | null;
-    loading: boolean;
+    userLoading: boolean;
     tokens: {
         accessToken: string | null;
         refreshToken: string | null;
@@ -24,10 +24,22 @@ export type UserAction =
     | { type: 'setTokens'; payload: UserState['tokens'] };
 
 export interface UserContextType {
-    state: UserState;
-    dispatch: React.Dispatch<UserAction>;
+    getUser: Function;  
+    userState: UserState;
+    userDispatch: React.Dispatch<UserAction>;
 };
 
 export interface UserProviderProps {
     children: ReactNode;
+};
+
+export const initialState: UserState = {
+    user: null,
+    userLoading: false,
+    tokens: {
+        accessToken: null,
+        refreshToken: null,
+        accessTokenExpireAt: null,
+        refreshTokenExpireAt: null
+    }
 };

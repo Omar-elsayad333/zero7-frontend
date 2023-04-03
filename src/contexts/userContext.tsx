@@ -1,54 +1,62 @@
 import { userReducer } from 'reducers/userReducer'
 import { getUserData } from 'handlers/userHandlers'
-import { createContext, useReducer, useContext, useEffect } from 'react'
-import { UserState, UserContextType, UserProviderProps } from 'interfaces/userInterfaces'
-
-const initialState: UserState = {
-    user: null,
-    loading: false,
-    tokens: {
-        accessToken: null,
-        refreshToken: null,
-        accessTokenExpireAt: null,
-        refreshTokenExpireAt: null
-    }
-};
+import { createContext, useReducer, useContext, useEffect, useLayoutEffect } from 'react'
+import { initialState, UserContextType, UserProviderProps } from 'interfaces/userInterfaces'
 
 const UserContext = createContext<UserContextType>({
-    state: initialState,
-    dispatch: () => null,
+    getUser: () => null,
+    userState: initialState,
+    userDispatch: () => null
 });
 
 export const UserProvider = ({ children }: UserProviderProps) => {
-    const [state, dispatch] = useReducer(userReducer, initialState);
+
+    const [userState, userDispatch] = useReducer(userReducer, initialState);
+
+    useLayoutEffect(() => {
+        userDispatch({
+            type: 'setTokens',
+            payload: {
+                accessToken: localStorage.getItem('zero7_access_token') || sessionStorage.getItem('zero7_access_token') || null,
+                refreshToken: localStorage.getItem('zero7_refresh_token') || sessionStorage.getItem('zero7_refresh_token') || null,
+                accessTokenExpireAt: localStorage.getItem('zero7_access_exp') || sessionStorage.getItem('zero7_access_exp') || null,
+                refreshTokenExpireAt: localStorage.getItem('zero7_refresh_exp') || sessionStorage.getItem('zero7_refresh_exp') || null
+            }
+        })
+    }, [])
 
     useEffect(() => {
-        if(state.tokens.accessToken) {
-            getUser(state.tokens.accessToken)
-        }else if(state.tokens.refreshToken) {
-            
+        const checkUser = async () => {
+            if(userState.tokens.accessToken) {
+                await getUser(userState.tokens.accessToken)
+            }
         }
-    }, [state.tokens.accessToken])
+        checkUser()
+    }, [userState.tokens.accessToken])
+
+    useEffect(() => {
+        console.log(userState)
+    }, [userState])
 
     const getUser = async (token: string) => {
         try {
-            dispatch({type: 'setLoading'})
+            userDispatch({type: 'setLoading'})
             const response = await getUserData(token)
-            dispatch({
+            userDispatch({
                 type: 'setUser',
                 payload: response
             })
         }
-        catch (error) {
-            
+        catch (error) { 
+            throw Error('No such user')
         }
         finally {
-            dispatch({type: 'setLoading'})
+            userDispatch({type: 'setLoading'})
         }
     }
 
     return (
-        <UserContext.Provider value={{ state, dispatch }}>
+        <UserContext.Provider value={{ getUser, userState, userDispatch }}>
             {children}
         </UserContext.Provider>
     );
