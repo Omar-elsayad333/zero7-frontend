@@ -7,7 +7,7 @@ export const loginUser = async (data: any) => {
         return res.data
     } 
     catch (error: any) {
-        return error.response.data.error
+        throw Error(error.response.data.error) 
     }
 }
 
@@ -17,6 +17,6 @@ export const registerUser = async (data: any) => {
         return res.data
     }
     catch (error: any) {
-        return error.response.data.error
+        throw Error(error.response.data.error)
     }
 }

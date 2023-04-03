@@ -1,10 +1,11 @@
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 import { loginUser } from "handlers/userHandlers";
 import { loginReducer } from "reducers/loginReducer";
 import { LoginState, loginInitialValues } from "interfaces/loginInterface";
 
 const useLogin = () => {
 
+    const [pageError, setPageError] = useState<any>('')
     const [state, dispatch] = useReducer(loginReducer, loginInitialValues)
 
     // Controll inputs
@@ -23,6 +24,11 @@ const useLogin = () => {
             type: 'showPass',
             field: event.currentTarget.name
         }) 
+    }
+
+    // Handler remeber me state
+    const handleRemeberMe = () => {
+        dispatch({ type: 'remeberMe' })
     }
 
     // Validate data before submit it
@@ -59,12 +65,17 @@ const useLogin = () => {
         event.preventDefault();
         if(validator()) {
             try {
-                // dispatch({type: 'submit'})
+                dispatch({type: 'loading'})
+                setPageError('')
                 const data = collector()
                 await loginUser(data)
+            } 
+            catch (err: any) {
+                console.log(err.message)
+                setPageError(err.message)
             }
-            catch (err) {
-                console.log(err)
+            finally {
+                dispatch({type: 'loading'})
             }
         }
     }
@@ -72,9 +83,11 @@ const useLogin = () => {
     return (
         {
             state,
+            pageError,
             actions: {
                 handleChange,
                 handleShowPass,
+                handleRemeberMe,
                 handleSubmit
             }
         }

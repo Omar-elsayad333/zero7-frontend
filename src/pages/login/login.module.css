@@ -17,7 +17,7 @@
 }
 
 .formContainer {
-    gap: 90px;
+    gap: 50px;
     padding: 60px 100px;
     border-radius: 20px;
     display: flex;
@@ -35,11 +35,29 @@
     justify-content: center;
 }
 
-.buttonsContainer {
-    gap: 30px;
+.optionsContainer {
+    width: 100%;
+    gap: 10px;
     display: flex;
     flex-wrap: wrap;
+    align-items: start;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.remeberMe {
+    display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+.buttonsContainer {
+    gap: 30px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    flex-direction: column;
     justify-content: center;
 }
 
