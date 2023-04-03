@@ -1,10 +1,14 @@
 import { useReducer, useState } from "react";
-import { loginUser } from "handlers/userHandlers";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "contexts/userContext";
+import { loginUser, storeUser } from "handlers/userHandlers";
 import { loginReducer } from "reducers/loginReducer";
 import { LoginState, loginInitialValues } from "interfaces/loginInterface";
 
 const useLogin = () => {
 
+    let navigate = useNavigate();
+    const { getUser, userDispatch } = useUser()
     const [pageError, setPageError] = useState<any>('')
     const [state, dispatch] = useReducer(loginReducer, loginInitialValues)
 
@@ -68,7 +72,19 @@ const useLogin = () => {
                 dispatch({type: 'loading'})
                 setPageError('')
                 const data = collector()
-                await loginUser(data)
+                const userData = await loginUser(data)
+                userDispatch({
+                    type: 'setTokens',
+                    payload: {
+                        accessToken: userData.accessToken,
+                        refreshToken: userData.refreshToken,
+                        accessTokenExpireAt: userData.accessTokenExpireAt,
+                        refreshTokenExpireAt: userData.refreshTokenExpireAt
+                    }
+                })
+                storeUser(userData, state.remeberMe.value)
+                await getUser(userData.accessToken)
+                navigate(-1)
             } 
             catch (err: any) {
                 console.log(err.message)

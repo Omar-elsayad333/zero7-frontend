@@ -31,7 +31,7 @@ export const userReducer = (state: UserState, action: UserAction): UserState => 
         case 'setLoading':
             return {
                 ...state, 
-                loading: !state.loading
+                userLoading: !state.userLoading
             }
         default:
             throw new Error('Invalid action type');
