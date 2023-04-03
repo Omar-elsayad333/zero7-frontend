@@ -1,21 +1,27 @@
 import { ReactNode } from 'react'
 
 interface User {
-    id: number;
     name: string;
     email: string;
+    phoneNumber: string;
 };
 
 export interface UserState {
-    accessToken: string | null;
-    refreshToken: string | null;
     user: User | null;
+    loading: boolean;
+    tokens: {
+        accessToken: string | null;
+        refreshToken: string | null;
+        accessTokenExpireAt: string | null;
+        refreshTokenExpireAt: string | null;
+    },
 };
 
 export type UserAction =
-    | { type: 'setTokens'; payload: { accessToken: string; refreshToken: string } }
+    | { type: 'setLoading' }
+    | { type: 'clearTokens' }
     | { type: 'setUser'; payload: User }
-    | { type: 'clearTokens' };
+    | { type: 'setTokens'; payload: UserState['tokens'] };
 
 export interface UserContextType {
     state: UserState;

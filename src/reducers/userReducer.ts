@@ -5,21 +5,34 @@ export const userReducer = (state: UserState, action: UserAction): UserState => 
         case 'setTokens':
             return {
                 ...state,
-                accessToken: action.payload.accessToken,
-                refreshToken: action.payload.refreshToken,
+                tokens: {
+                    accessToken: action.payload.accessToken,
+                    refreshToken: action.payload.refreshToken,
+                    accessTokenExpireAt: action.payload.accessTokenExpireAt,
+                    refreshTokenExpireAt: action.payload.refreshTokenExpireAt
+                }
             };
         case 'setUser':
             return {
-                ...state,
+                ...state,   
                 user: action.payload,
             };
         case 'clearTokens':
-            return {
+            return {    
                 ...state,
-                accessToken: null,
-                refreshToken: null,
                 user: null,
+                tokens: {
+                    accessToken: null,
+                    refreshToken: null,
+                    accessTokenExpireAt: null,
+                    refreshTokenExpireAt: null
+                }
             };
+        case 'setLoading':
+            return {
+                ...state, 
+                loading: !state.loading
+            }
         default:
             throw new Error('Invalid action type');
     }
