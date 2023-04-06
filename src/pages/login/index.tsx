@@ -32,7 +32,7 @@ const Login: React.FC = () => {
                         type='text'
                         name='email'
                         setValue={actions.handleChange}
-                        placeholder='Enter your email'
+                        placeholder='Enter your email or phone number'
                         value={state.fields.email.value}
                         error={state.fields.email.error}
                         helperText={state.fields.email.helperText}

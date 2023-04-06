@@ -1,6 +1,10 @@
 import { useLayoutEffect } from "react";
+import { useUser } from "contexts/userContext";
+import { logoutUser } from "handlers/userHandlers";
 
 const useNavbar = () => {
+
+    const { userState, userDispatch } = useUser()
 
     useLayoutEffect(() => {
         const navbar: any = document.querySelector('#navbar');
@@ -12,9 +16,21 @@ const useNavbar = () => {
             }
         });
     }, [])
+
+    const logout = async () => {
+        userDispatch({ type: 'setLoading' })
+        await logoutUser()
+        userDispatch({ type: 'clearTokens' })
+        userDispatch({ type: 'setLoading' })
+    }
     
     return (
-        {}
+        {
+            userState,
+            actions: {
+                logout
+            }
+        }
     );
 }
 
