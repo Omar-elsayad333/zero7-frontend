@@ -25,6 +25,10 @@ li {
     justify-content: center;
 }
 
+.linkContainer {
+    text-decoration: none;
+}
+
 .link > :hover {
     color: var(--primary-color);
     fill: var(--primary-color);

@@ -47,16 +47,36 @@ export const getUserData = async (token: string) => {
 }
 
 // Handle store user tokens in local or session storage
-export const storeUser = (tokens: any, remeberMe: boolean = true) => {
-    if(remeberMe) {
+export const storeUser = (tokens: any, rememberMe: boolean = true) => {
+    if(rememberMe) {
         localStorage.setItem('zero7_access_token', tokens.accessToken)
         localStorage.setItem('zero7_refresh_token', tokens.refreshToken)
         localStorage.setItem('zero7_access_exp', tokens.accessTokenExpireAt)
         localStorage.setItem('zero7_refresh_exp', tokens.refreshTokenExpireAt)
+        sessionStorage.removeItem('zero7_access_token')
+        sessionStorage.removeItem('zero7_refresh_token')
+        sessionStorage.removeItem('zero7_access_exp')
+        sessionStorage.removeItem('zero7_refresh_exp')
     }else {
         sessionStorage.setItem('zero7_access_token', tokens.accessToken)
         sessionStorage.setItem('zero7_refresh_token', tokens.refreshToken)
         sessionStorage.setItem('zero7_access_exp', tokens.accessTokenExpireAt)
         sessionStorage.setItem('zero7_refresh_exp', tokens.refreshTokenExpireAt)
+        localStorage.removeItem('zero7_access_token')
+        localStorage.removeItem('zero7_refresh_token')
+        localStorage.removeItem('zero7_access_exp')
+        localStorage.removeItem('zero7_refresh_exp')
     }
+}   
+
+// Handle user log out
+export const logoutUser = async () => {
+    localStorage.removeItem('zero7_access_token')
+    localStorage.removeItem('zero7_refresh_token')
+    localStorage.removeItem('zero7_access_exp')
+    localStorage.removeItem('zero7_refresh_exp')
+    sessionStorage.removeItem('zero7_access_token')
+    sessionStorage.removeItem('zero7_refresh_token')
+    sessionStorage.removeItem('zero7_access_exp')
+    sessionStorage.removeItem('zero7_refresh_exp')
 }
