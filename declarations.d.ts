@@ -20,6 +20,16 @@ declare module '*.json' {
     export default value;
 }
 
+declare module '*.mp4' {
+    const value: any;
+    export default value;
+}
+
+declare module '*.WebM' {
+    const value: any;
+    export default value;
+}
+
 declare function require(moduleName: string): any;
 
 declare module '*.module.css' {
