@@ -1,0 +1,22 @@
+.container {
+  background: var(--background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.shopVideo {
+  max-width: 80%;
+  margin-bottom: 100px;
+  border-radius: 50px;
+  -webkit-filter: brightness(0.5);
+  -moz-filter: brightness(0.5);
+  -o-filter: brightness(0.5);
+  -ms-filter: brightness(0.5);
+  filter: brightness(0.4);
+  background: black;
+}

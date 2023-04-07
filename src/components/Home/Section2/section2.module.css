@@ -96,3 +96,9 @@
     color: var(--primary-color);
     max-width: 425px;
 }
+
+@media screen and (max-width: 1000px) {
+    .container {
+        justify-content: space-between;
+    }
+}
