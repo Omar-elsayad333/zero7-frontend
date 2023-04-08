@@ -1,4 +1,5 @@
 import style from './shop.module.css'
+import useShop from 'containers/useShop'
 import mp4 from 'assets/videos/shopVideo.mp4'
 import webm from 'assets/videos/shopVideo.WebM'
 import FilterWidget from 'components/filterWidget'
@@ -6,6 +7,9 @@ import FilterWidget from 'components/filterWidget'
 // MUI
 
 const Shop = () => {
+
+    const { data } = useShop()
+
     return (
         <div className={`${style.container} grid`}>
             <video autoPlay loop muted className={style.shopVideo}>

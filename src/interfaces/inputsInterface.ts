@@ -23,3 +23,11 @@ export interface InputHelperTextProps {
     type: string;
     content: string;
 }
+
+export interface SelectProps {
+    data: any;
+    value: string;
+    disabled: boolean;
+    onChange: Function;
+    placeholder: string;
+}
