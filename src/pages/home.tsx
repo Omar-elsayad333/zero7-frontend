@@ -9,11 +9,14 @@ const Home = () => {
     return (
         <>
             {
-                userState.userLoading && <LogoLoading />
+                userState.userLoading ?
+                <LogoLoading /> :
+                <>
+                    <Landing />
+                    <Section1 />
+                    <Section2 />
+                </>
             }
-            <Landing />
-            <Section1 />
-            <Section2 />
         </>
     )
 }
