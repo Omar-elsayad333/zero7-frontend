@@ -18,7 +18,21 @@
   gap: 30px;
 }
 
+.filter {
+  display: none;
+}
+
 .filterControllers {
   padding: 10px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+  .filtersContainer {
+    display: none;
+  }
+
+  .filter {
+    display: block;
+  }
 }

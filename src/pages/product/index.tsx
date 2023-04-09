@@ -12,5 +12,5 @@ const ProfileDetails: React.FC  = () => {
         </Box> 
     )
 }
- 
+
 export default ProfileDetails;
