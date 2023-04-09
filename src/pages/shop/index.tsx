@@ -8,7 +8,7 @@ import ProductCard from 'components/Shop/ProductCard'
 // MUI
 import { Typography } from '@mui/material'
 
-const Shop = () => {
+const Shop: React.FC  = () => {
 
     const { data } = useShop()
 
