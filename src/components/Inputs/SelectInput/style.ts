@@ -7,7 +7,7 @@ export const style: IStyle = {
         width: '255px',
         height: '46px',
         color: colors.secondary.main,
-        backgroundColor: '#151515',
+        backgroundColor: 'transparent',
         borderRadius: '7px',
         fontSize: '14px',
         fontWeight: '400',
