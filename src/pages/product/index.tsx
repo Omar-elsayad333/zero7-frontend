@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 // MUI
 import Box from '@mui/material/Box'
 
-const ProfileDetails = () => {
+const ProfileDetails: React.FC  = () => {
 
     const {id} = useParams();
     return (
