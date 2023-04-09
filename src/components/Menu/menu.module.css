@@ -1,0 +1,33 @@
+.container {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  position: fixed;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  transition: 0.5s;
+  animation: startAnimation 1s;
+}
+
+.menuList {
+  width: 100%;
+  min-height: 100%;
+  gap: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@keyframes startAnimation {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100vh;
+  }
+}

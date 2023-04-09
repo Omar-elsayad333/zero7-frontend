@@ -1,3 +1,4 @@
+import Menu from 'components/Menu'
 import { colors } from 'styles/colors'
 import { Routes } from 'routes/Routes'
 import { Link } from 'react-router-dom'
@@ -10,10 +11,11 @@ import Typography from '@mui/material/Typography'
 
 const Navbar: React.FC = () => {
 
-    const { userState, actions } = useNavbar()
+    const { userState, menuState, actions } = useNavbar()
 
     return (
         <div className={`${style.container} grid`} id='navbar'>
+            { menuState && <Menu closeMenuAction={actions.closeMenu} logoutAction={actions.logout} /> }
             <Link to={'/'}>
                 <img data-aos="fade-right" data-aos-duration="1000" src={logo} width={100} alt='Zero7' /> 
             </Link>
@@ -99,13 +101,11 @@ const Navbar: React.FC = () => {
                             </svg>
                         </li>
                     </Link>
-                    <Link to={'/'} className={style.linkContainer}>
-                        <li className={style.link}>
-                            <svg width="24" height="25" viewBox="0 0 24 25" fill={colors.secondary.main} xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 7.5C4 6.94772 4.44772 6.5 5 6.5H19C19.5523 6.5 20 6.94772 20 7.5C20 8.05228 19.5523 8.5 19 8.5H5C4.44772 8.5 4 8.05228 4 7.5ZM4 12.5C4 11.9477 4.44772 11.5 5 11.5H19C19.5523 11.5 20 11.9477 20 12.5C20 13.0523 19.5523 13.5 19 13.5H5C4.44772 13.5 4 13.0523 4 12.5ZM4 17.5C4 16.9477 4.44772 16.5 5 16.5H19C19.5523 16.5 20 16.9477 20 17.5C20 18.0523 19.5523 18.5 19 18.5H5C4.44772 18.5 4 18.0523 4 17.5Z" fill="inherit"/>
-                            </svg>
-                        </li>
-                    </Link>
+                    <li className={style.link} onClick={actions.openMenu}>
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill={colors.secondary.main} xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 7.5C4 6.94772 4.44772 6.5 5 6.5H19C19.5523 6.5 20 6.94772 20 7.5C20 8.05228 19.5523 8.5 19 8.5H5C4.44772 8.5 4 8.05228 4 7.5ZM4 12.5C4 11.9477 4.44772 11.5 5 11.5H19C19.5523 11.5 20 11.9477 20 12.5C20 13.0523 19.5523 13.5 19 13.5H5C4.44772 13.5 4 13.0523 4 12.5ZM4 17.5C4 16.9477 4.44772 16.5 5 16.5H19C19.5523 16.5 20 16.9477 20 17.5C20 18.0523 19.5523 18.5 19 18.5H5C4.44772 18.5 4 18.0523 4 17.5Z" fill="inherit"/>
+                        </svg>
+                    </li>
                 </div>
             </ul>
         </div>

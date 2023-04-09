@@ -9,7 +9,7 @@ const ProfileDetails = () => {
     return (
         <Box>
             <h1>{id}</h1>
-        </Box>
+        </Box> 
     )
 }
  
