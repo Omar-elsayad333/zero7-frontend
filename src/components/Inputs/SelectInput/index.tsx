@@ -7,10 +7,11 @@ import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-const SelectInput: React.FC<SelectProps> = ({ value, onChange, disabled, data, placeholder }) => {
+const SelectInput: React.FC<SelectProps> = ({ name, value, onChange, disabled, data, placeholder }) => {
     return (
         <div>
             <Select
+                name={name}
                 value={value}  
                 sx={style.root}
                 disabled={disabled}

@@ -1,5 +1,5 @@
-import logo from 'assets/images/logo_gold.png'
 import style from './logoLoading.module.css'
+import logo from 'assets/images/logo_gold.png'
 
 const LogoLoading: React.FC = () => {
     return (

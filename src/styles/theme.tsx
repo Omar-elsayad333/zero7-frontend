@@ -54,53 +54,44 @@ const ThemeApp: React.FC<IProps> = ({ children }) => {
             h1: {
                 fontWeight: '700',
                 fontSize: '40px',
-                // '@media (min-width:600px)': {
-                //     fontSize: '32px',
-                // },
-                // '@media (min-width:1500px)': {
-                //     fontSize: '35px',
-                // }
+                '@media (max-width:600px)': {
+                    fontSize: '35px',
+                },
             },
             h2: {
                 fontWeight: '700',
                 fontSize: '30px',
-                // '@media (min-width:600px)': {
-                //     fontSize: '27px',
-                // },
-                // '@media (min-width:1500px)': {
-                //     fontSize: '30px',
-                // }
+                '@media (max-width:600px)': {
+                    fontSize: '25px',
+                },
             },
             h3: {
                 fontWeight: '400',
                 fontSize: '25px',
-                // '@media (min-width:600px)': {
-                //     fontSize: '23px',        
-                // },
-                // '@media (min-width:1500px)': {
-                //     fontSize: '25px',       
-                // },
+                '@media (max-width:600px)': {
+                    fontSize: '20px',        
+                },
             },
             h4: {
                 fontWeight: '400',
                 fontSize: '20px',
-                // '@media (min-width:1500px)': {
-                //     fontSize: '20px',       
-                // },
+                '@media (max-width:600px)': {
+                    fontSize: '16px',       
+                },
             },
             h5: {
                 fontWeight: '400',
                 fontSize: '18px',
-                // '@media (min-width:1500px)': {
-                //     fontSize: '14px',       
-                // },
+                '@media (max-width:600px)': {
+                    fontSize: '14px',       
+                },
             },
             h6: {
                 fontWeight: '700',
                 fontSize: '14px',
-                // '@media (min-width:1500px)': {
-                //     fontSize: '12px',       
-                // },
+                '@media (max-width:600px)': {
+                    fontSize: '12px',       
+                },
             },
         },
     });

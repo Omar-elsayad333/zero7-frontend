@@ -26,6 +26,7 @@ export interface InputHelperTextProps {
 
 export interface SelectProps {
     data: any;
+    name?: string;
     value: string;
     disabled: boolean;
     onChange: Function;
