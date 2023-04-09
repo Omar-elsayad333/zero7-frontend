@@ -5,7 +5,7 @@ import SelectInput from 'components/Inputs/SelectInput';
 const FilterWidget: React.FC = () => {
     return (
         <div className={style.container}>
-            <div className={style.filtersContainer}>
+            <div className={style.filtersContainer} data-aos="fade-right" data-aos-duration="1000">
                 <SelectInput 
                     data={''}
                     value={''}
@@ -21,7 +21,7 @@ const FilterWidget: React.FC = () => {
                     disabled={false}
                 />
             </div>
-            <div className={style.filterControllers}>
+            <div className={style.filterControllers} data-aos="fade-left" data-aos-duration="1000">
                 <Typography variant='h4' color={'primary'}>
                     Clear Filters
                 </Typography>

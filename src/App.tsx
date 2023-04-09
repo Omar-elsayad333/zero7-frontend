@@ -38,7 +38,7 @@ const router = createBrowserRouter(
                 <Route path={Routes.shop} element={<Shop />} />
                 <Route path={Routes.cart} element={<Cart />} />
                 <Route path={Routes.aboutUs} element={<AboutUs />} />
-                <Route path={Routes.product} element={<Product />} />
+                <Route path={`${Routes.product}:id`} element={<Product />} />
                 <Route path={Routes.profile} element={<Profile />} />
                 <Route path={Routes.notAuth} element={<NotAuth />} />
                 <Route path={Routes.wishlist} element={<Wishlist />} />

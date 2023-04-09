@@ -1,57 +1,62 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Crimson Text', serif;
+  font-family: "Crimson Text", serif;
 }
 
-:root{
-    --primary-color : #D1AE6F;
-    --secondary-color : #A9A9A9;
-    --error-color: #AA0404;
-    --dark-color: #151515;
-    --background-color: linear-gradient(-45deg, #0C0C0C 0%, #282828 100%);
+:root {
+  --primary-color: #d1ae6f;
+  --secondary-color: #a9a9a9;
+  --error-color: #aa0404;
+  --dark-color: #151515;
+  --light-color: #ededed;
+  --background-color: linear-gradient(-45deg, #0c0c0c 0%, #282828 100%);
 }
 
 a {
-    text-decoration-color: var(--secondary-color);
+  text-decoration-color: var(--secondary-color);
+}
+
+.notLink {
+  text-decoration: none;
 }
 
 .grid {
-    padding-left: 120px;
-    padding-right: 120px;
+  padding-left: 120px;
+  padding-right: 120px;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
-input[type=number] {
-    -moz-appearance: textfield;
-    /* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  /* Firefox */
 }
 
 @media screen and (max-width: 1100px) {
-    .grid {
-        padding-left: 80px;
-        padding-right: 80px;
-    }
+  .grid {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
 }
 
 @media screen and (max-width: 800px) {
-    .grid {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
+  .grid {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 }
 
 @media screen and (max-width: 500px) {
-    .grid {
-        padding-left: 25px;
-        padding-right: 25px;
-    }
+  .grid {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
 }
