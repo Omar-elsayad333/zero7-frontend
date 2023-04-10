@@ -37,5 +37,11 @@ export const colors: any = {
     },
     background: {
         main: 'linear-gradient(112.25deg, #282828 0%, #0C0C0C 100%)'
+    },
+    light: {
+        main: '#ededed'
+    },
+    dark: {
+        main: '#151515'
     }
 }
