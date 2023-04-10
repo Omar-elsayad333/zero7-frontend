@@ -6,19 +6,21 @@ import SelectInput from 'components/Inputs/SelectInput'
 import Typography from '@mui/material/Typography'
 
 type Props = {
-    data: any
+    data: any;
+    state: any;
+    actions: any;
 }
 
-const FilterWidget: React.FC<Props> = ({ data }) => {
+const FilterWidget: React.FC<Props> = ({ data, state,  actions }) => {
     return (
         <div className={style.container}>
             <div className={style.filtersContainer} data-aos="fade-right" data-aos-duration="1000">
                 <SelectInput 
                     data={data.genders}
-                    value={''}
-                    onChange={()=>{}}
                     placeholder='Genders'
-                    disabled={false}
+                    disabled={state.isLoading}
+                    value={state.selectedGender}
+                    onChange={actions.handleSelectedGender}
                 />
                 <SelectInput 
                     data={data.categorys}

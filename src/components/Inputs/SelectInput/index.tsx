@@ -7,7 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-const SelectInput: React.FC<SelectProps> = ({ name, value, onChange, disabled, data, placeholder }) => {
+const SelectInput: React.FC<SelectProps> = ({ name, value = '', onChange, disabled, data, placeholder }) => {
     return (
         <div>
             <Select
@@ -15,13 +15,13 @@ const SelectInput: React.FC<SelectProps> = ({ name, value, onChange, disabled, d
                 value={value}  
                 sx={style.root}
                 disabled={disabled}
-                onChange={(e) => onChange(e)}
+                onChange={e => onChange(e)}
                 IconComponent={KeyboardArrowDownIcon}
-                renderValue={(selected) => {
-                    if (selected.length === 0) {
+                renderValue={(selected) => {    
+                    if (!selected || selected.length === 0) {
                         return (
                             <Typography 
-                                fontSize={14}
+                                fontSize={14}    
                                 fontWeight={400} 
                                 color={'primary'}
                             >
@@ -39,7 +39,7 @@ const SelectInput: React.FC<SelectProps> = ({ name, value, onChange, disabled, d
                     data?.length > 0 &&
                     data.map((item: any) => (
                         <MenuItem
-                            key={item.id}
+                            key={item._id}
                             value={item.name}
                         >
                             {item.name}
