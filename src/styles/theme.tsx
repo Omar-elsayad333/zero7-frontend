@@ -76,14 +76,16 @@ const ThemeApp: React.FC<IProps> = ({ children }) => {
                 fontWeight: '400',
                 fontSize: '20px',
                 '@media (max-width:600px)': {
-                    fontSize: '16px',       
+                    fontSize: '16px',
+                    fontWeight: '700',       
                 },
             },
             h5: {
                 fontWeight: '400',
                 fontSize: '18px',
                 '@media (max-width:600px)': {
-                    fontSize: '14px',       
+                    fontSize: '14px',
+                    fontWeight: '700',       
                 },
             },
             h6: {
