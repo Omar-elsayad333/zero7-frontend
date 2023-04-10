@@ -29,6 +29,16 @@
   cursor: pointer;
 }
 
+.emptyMes {
+  margin-top: 100px;
+  gap: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (max-width: 1000px) {
   .shopVideo {
     width: 100%;

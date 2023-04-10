@@ -51,13 +51,13 @@ export const menuStyle: SxProps = {
             border: '2px solid transparent',
         },  
         marginTop: '10px',
-        backgroundColor: '#151515',
+        backgroundColor: colors.light.main,
         border: `1px solid ${colors.primary.main}`,
         // first number is item height, second number is item top padding
         maxHeight: 48 * 4.5 + 8,
     },
     '.MuiMenuItem-root': {
-        color: colors.secondary.main,
+        color: colors.primary.main,
         ':hover': {
             backgroundColor: '#282828'
         }

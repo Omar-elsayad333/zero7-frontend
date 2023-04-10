@@ -1,13 +1,9 @@
-
-// MUI
-import Box from '@mui/material/Box'
-
-const Cart = () => {
+const cart = () => {
     return (
-        <Box>
+        <>
             cart
-        </Box>
-    )
+        </>
+    );
 }
  
-export default Cart;
+export default cart;

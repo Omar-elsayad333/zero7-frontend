@@ -23,11 +23,14 @@ const Shop: React.FC  = () => {
                             categorys: data.categorys
                         }} 
                         state={{
-                            selectedGender: states.selectedGender.name,
+                            selectedGender: states.selectedGender,
+                            selectedCategory: states.selectedCategory,
                             isLoading: states.isLoading
                         }}
                         actions={{
-                            handleSelectedGender: actions.handleSelectedGender
+                            handleSelectedGender: actions.handleSelectedGender,
+                            handleSelectedCategory: actions.handleSelectedCategory,
+                            clearFilters: actions.clearFilters
                         }}
                     />
                     <div className={style.cardsContainer}>
@@ -35,7 +38,12 @@ const Shop: React.FC  = () => {
                             data ?
                             data.productsData.map((item: any) => (
                                 <div key={item._id} className={style.card} data-aos="flip-left" data-aos-duration="1000">
-                                    <ProductCard data={item} />
+                                    <ProductCard 
+                                        data={item}
+                                        actions={{
+                                            addToWishlist: actions.addToWishlist
+                                        }}
+                                    />
                                 </div>
                             )) : 
                             <Typography variant='h4' color={'primary'}>
