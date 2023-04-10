@@ -9,24 +9,31 @@ import Typography from '@mui/material/Typography'
 
 const Shop: React.FC  = () => {
 
-    const { data, genders, categorys, isLoading} = useShop()
+    const { data, states, actions} = useShop()
 
     return (
         <div className={`${style.container} grid`}>
             {
-                isLoading ?
+                states.isLoading ?
                 <LogoLoading /> :
                 <>
-                    <FilterWidget data={
-                        {
-                            genders: genders,
-                            categorys: categorys
-                        }
-                    } />
+                    <FilterWidget 
+                        data={{
+                            genders: data.genders,
+                            categorys: data.categorys
+                        }} 
+                        state={{
+                            selectedGender: states.selectedGender.name,
+                            isLoading: states.isLoading
+                        }}
+                        actions={{
+                            handleSelectedGender: actions.handleSelectedGender
+                        }}
+                    />
                     <div className={style.cardsContainer}>
                         {
                             data ?
-                            data.map((item: any) => (
+                            data.productsData.map((item: any) => (
                                 <div key={item._id} className={style.card} data-aos="flip-left" data-aos-duration="1000">
                                     <ProductCard data={item} />
                                 </div>
