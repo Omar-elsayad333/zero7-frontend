@@ -56,9 +56,7 @@ const useShop = () => {
     }, [productsData])
 
     useEffect(() => {
-        console.log('outside')
         if(selectedGender !== '') {
-            console.log('inside')
             if(selectedCategory !== '') {
                 setProductsData(
                     originalData.filter((item: any) => item.genderId === selectedGender._id && item.categoryId === selectedCategory._id)
@@ -70,7 +68,6 @@ const useShop = () => {
             }
         }
         if(selectedCategory !== '') {
-            console.log('inside')
             if(selectedGender !== '') {
                 setProductsData(
                     originalData.filter((item: any) => item.categoryId === selectedCategory._id && item.genderId === selectedGender._id)

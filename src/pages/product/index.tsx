@@ -1,15 +1,27 @@
-import { useParams } from 'react-router-dom';
-
-// MUI
-import Box from '@mui/material/Box'
+import style from './product.module.css'
+import useProduct from "containers/useProduct";
+import LogoLoading from "components/Loading/LogoLoading";
+import MainProduct from "components/Product/MainProduct";
 
 const ProfileDetails: React.FC  = () => {
 
-    const {id} = useParams();
+    const { data, states, actions } = useProduct()
+
     return (
-        <Box>
-            <h1>{id}</h1>
-        </Box> 
+        <div className={`${style.container} grid`}>
+            {
+                states.isLoading ?
+                <LogoLoading /> : 
+                <div>
+                    <MainProduct 
+                        data={data.productData}
+                        states={states}
+                        actions={actions}
+                    />
+                    {/* <SideProduct /> */}
+                </div>
+            }
+        </div>
     )
 }
 
