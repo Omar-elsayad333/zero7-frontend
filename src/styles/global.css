@@ -30,7 +30,7 @@ a {
   padding-right: 120px;
 }
 
-.colorActive {
+.boxActive {
   border: 2px solid var(--primary-color);
 }
 

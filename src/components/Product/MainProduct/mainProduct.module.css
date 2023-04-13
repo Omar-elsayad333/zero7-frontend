@@ -1,10 +1,13 @@
 .container {
   display: flex;
+  flex-wrap: wrap;
   gap: 50px;
 }
 
 .imagesContainer {
   display: flex;
+  max-width: 100%;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
@@ -37,4 +40,21 @@
   width: 40px;
   height: 40px;
   border-radius: 10px;
+}
+
+.sizeOuter {
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: var(--dark-color);
+}
+
+.buttonsAction {
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }

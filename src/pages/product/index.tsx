@@ -14,7 +14,7 @@ const ProfileDetails: React.FC  = () => {
                 <LogoLoading /> : 
                 <div>
                     <MainProduct 
-                        data={data.productData}
+                        data={data}
                         states={states}
                         actions={actions}
                     />
