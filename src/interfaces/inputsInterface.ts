@@ -32,3 +32,13 @@ export interface SelectProps {
     onChange: Function;
     placeholder: string;
 }
+
+export interface SelectNumberProps {
+    max?: number;
+    min?: number;
+    name?: string;
+    value: string;
+    disabled: boolean;
+    onChange: Function;
+    placeholder: string;
+}

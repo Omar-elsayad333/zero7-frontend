@@ -30,6 +30,10 @@ a {
   padding-right: 120px;
 }
 
+.boxActive {
+  border: 2px solid var(--primary-color);
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
