@@ -15,7 +15,7 @@ type Props = {
 const MainProduct: React.FC<Props> = ({ data, states, actions }) => {
     return (
         <div className={style.container} key={data.productData._id}>
-            <div className={style.imagesContainer} data-aos="fade-right" data-aos-duration="2000" >
+            <div className={style.imagesContainer} data-aos="fade-right" data-aos-duration="2000" data-aos-once='true'>
                 {
                     data.productData.colors &&
                     <>
@@ -24,7 +24,7 @@ const MainProduct: React.FC<Props> = ({ data, states, actions }) => {
                     </>
                 }
             </div>
-            <div className={style.detailsContainer} data-aos="fade-left" data-aos-duration="2000">
+            <div className={style.detailsContainer} data-aos="fade-left" data-aos-duration="2000"  data-aos-once='true'>
                 <Typography variant='h2' color={'primary'}>
                     {data.productData.name}
                 </Typography>
