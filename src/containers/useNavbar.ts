@@ -1,22 +1,11 @@
+import { useState } from "react";
 import { useUser } from "contexts/userContext";
-import { useLayoutEffect, useState } from "react";
 import { logoutUser } from "handlers/userHandlers";
 
 const useNavbar = () => {
 
     const [menuState, setMenuState] = useState<boolean>(false)
     const { userState, userDispatch } = useUser()
-
-    useLayoutEffect(() => {
-        const navbar: any = document.querySelector('#navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > navbar.offsetTop) {    
-                navbar.style.position = 'fixed'
-            } else {
-                navbar.style.position = 'static'
-            }
-        });
-    }, [])
 
     // Handle open menu
     const openMenu = () => {
@@ -35,8 +24,8 @@ const useNavbar = () => {
     // Logout user
     const logout = async () => {
         userDispatch({ type: 'setLoading' })
-        await logoutUser()
         userDispatch({ type: 'clearTokens' })
+        await logoutUser()
         userDispatch({ type: 'setLoading' })
     }
     

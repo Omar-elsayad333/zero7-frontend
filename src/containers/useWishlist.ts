@@ -12,10 +12,10 @@ const useWishlist = () => {
     }, [])
 
     const getData = async () => {
-        if(localStorage.getItem('wishlist')) {
+        if(localStorage.getItem('zero7_wishlist')) {
             setIsLoading(true)
             const dataCollector = []
-            const wishlist: any[] = JSON.parse(localStorage.getItem('wishlist')!)
+            const wishlist: any[] = JSON.parse(localStorage.getItem('zero7_wishlist')!)
             for(let wishId of wishlist) {
                 try {
                     const productsData: any = await getByIdHandler(Urls.products, wishId)
@@ -31,14 +31,13 @@ const useWishlist = () => {
     }   
 
     const removeFromWishList = (_id: string) => {
-        if(localStorage.getItem('wishlist')) {
-            console.log('kljdsaf')
-            const wishlist:any[] = JSON.parse(localStorage.getItem('wishlist')!)
+        if(localStorage.getItem('zero7_wishlist')) {
+            const wishlist:any[] = JSON.parse(localStorage.getItem('zero7_wishlist')!)
             const index = wishlist.indexOf(_id)
             
             if(index > -1) {
                 wishlist.splice(index, 1)
-                localStorage.setItem('wishlist', JSON.stringify(wishlist))
+                localStorage.setItem('zero7_wishlist', JSON.stringify(wishlist))
                 getData()
             }
         }

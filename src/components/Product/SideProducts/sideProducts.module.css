@@ -1,19 +1,11 @@
 .container {
-  background: var(--light-color);
-  min-height: calc(100vh - 75px);
   display: flex;
-  align-items: start;
-  justify-content: flex-start;
   flex-direction: column;
-  gap: 40px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  width: 100%;
-  overflow: hidden;
-  max-width: 100%;
+  align-items: center;
+  gap: 50px;
 }
 
-.cardsContainer {
+.cardContainer {
   width: 100%;
   display: flex;
   flex-wrap: wrap;

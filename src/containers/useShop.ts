@@ -39,9 +39,9 @@ const useShop = () => {
 
     useLayoutEffect(() => {
         const checkWishlist = () => {
-            if(localStorage.getItem('wishlist')) {
+            if(localStorage.getItem('zero7_wishlist')) {
                 const icons = Array.from(document.getElementsByClassName("wishlistIcons")) as HTMLElement[]
-                const wishlist: any = JSON.parse(localStorage.getItem('wishlist')!)
+                const wishlist: any = JSON.parse(localStorage.getItem('zero7_wishlist')!)
                 for(let icon of icons) {
                     for(let wish of wishlist) {
                         if(icon.getAttribute('data-id') === wish) {
@@ -107,12 +107,12 @@ const useShop = () => {
 
     // Handle add and remove from wishlist
     const addToWishlist = (event: any, _id: string) => {
-        if(localStorage.getItem('wishlist')) {
-            const wishlist = JSON.parse(localStorage.getItem('wishlist')!)
+        if(localStorage.getItem('zero7_wishlist')) {
+            const wishlist = JSON.parse(localStorage.getItem('zero7_wishlist')!)
             if(!wishlist.find((item: string) => item === _id)) {   
                 event.target.style.backgroundColor = colors.primary.main
                 wishlist.push(_id)
-                localStorage.setItem('wishlist', JSON.stringify(wishlist))
+                localStorage.setItem('zero7_wishlist', JSON.stringify(wishlist))
             }else {
                 event.target.style.backgroundColor = 'transparent'
                 const index = wishlist.indexOf(_id);
@@ -120,12 +120,12 @@ const useShop = () => {
                     wishlist.splice(index, 1);
                     console.log(wishlist)
                 }
-                localStorage.setItem('wishlist', JSON.stringify(wishlist))
+                localStorage.setItem('zero7_wishlist', JSON.stringify(wishlist))
             }
         }else {
             const wishlist = []
             wishlist.push(_id)
-            localStorage.setItem('wishlist', JSON.stringify(wishlist))
+            localStorage.setItem('zero7_wishlist', JSON.stringify(wishlist))
         }
     }
 

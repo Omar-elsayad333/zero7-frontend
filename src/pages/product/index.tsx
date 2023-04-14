@@ -2,6 +2,7 @@ import style from './product.module.css'
 import useProduct from "containers/useProduct";
 import LogoLoading from "components/Loading/LogoLoading";
 import MainProduct from "components/Product/MainProduct";
+import SideProducts from 'components/Product/SideProducts';
 
 const ProfileDetails: React.FC  = () => {
 
@@ -12,14 +13,18 @@ const ProfileDetails: React.FC  = () => {
             {
                 states.isLoading ?
                 <LogoLoading /> : 
-                <div>
+                <>
                     <MainProduct 
                         data={data}
                         states={states}
                         actions={actions}
                     />
-                    {/* <SideProduct /> */}
-                </div>
+                    <hr className={style.breaker} />
+                    <SideProducts
+                        data={data.sideProducts}
+                        actions={actions.addToWishlist}
+                    />
+                </>
             }
         </div>
     )

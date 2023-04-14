@@ -5,9 +5,8 @@
   top: 0;
   left: 0;
   z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-items: center;
   background-color: rgb(0, 0, 0);
 }
 

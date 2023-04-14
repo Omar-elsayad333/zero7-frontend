@@ -21,8 +21,6 @@ const SelectNumberInput: React.FC<SelectNumberProps> = ({ name, value, onChange,
         );
     }
 
-    console.log(max)
-
     return (
         <Select
             displayEmpty
