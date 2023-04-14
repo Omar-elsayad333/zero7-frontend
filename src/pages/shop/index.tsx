@@ -35,7 +35,7 @@ const Shop: React.FC  = () => {
                     />
                     <div className={style.cardsContainer}>
                         {
-                            data ?
+                            data.productsData ?
                             data.productsData.map((item: any) => (
                                 <div key={item._id} className={style.card} data-aos="flip-left" data-aos-duration="1000">
                                     <ProductCard 

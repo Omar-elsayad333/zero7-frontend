@@ -1,4 +1,13 @@
 .container {
   padding-top: 50px;
   padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  background: var(--light-background-color);
+}
+
+.breaker {
+  border: 1px solid var(--primary-color);
+  opacity: 1;
 }

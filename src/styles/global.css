@@ -5,6 +5,7 @@
 }
 
 body {
+  margin-top: 75px;
   font-family: "Crimson Text", serif;
 }
 
@@ -14,6 +15,7 @@ body {
   --error-color: #aa0404;
   --dark-color: #151515;
   --light-color: #ededed;
+  --light-background-color: #f9fbfc;
   --background-color: linear-gradient(-45deg, #0c0c0c 0%, #282828 100%);
 }
 
