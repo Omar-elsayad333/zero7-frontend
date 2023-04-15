@@ -15,6 +15,15 @@ const cart: React.FC = () => {
 
     return (
         <div className={`${style.container} grid`}>
+            <Typography
+                variant='h2'
+                color={'primary'}
+                paddingBottom={2}
+                textAlign={'center'}
+                sx={{width: '100%', borderBottom: `2px solid ${colors.primary.main}`}}
+            >
+                Your Cart
+            </Typography>
             {
                 data.productsData.length > 0 ?
                 <>
