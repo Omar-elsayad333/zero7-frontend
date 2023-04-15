@@ -3,6 +3,7 @@ import { colors } from 'styles/colors'
 import { useParams } from 'react-router-dom'
 import { useLayoutEffect, useState, useEffect } from 'react'
 import { getByIdHandler, getHandler } from 'handlers/requestHandlers'
+import { ProductCartProps, productCartInitialValues } from 'interfaces/productCart'
 
 const useProduct = () => {
 
@@ -13,8 +14,8 @@ const useProduct = () => {
     const [sizes, setSizes] = useState<any[]>([])
     const [quantity, setQuantity] = useState<number>(0)
     const [selectedImages, setSelectedImages] = useState<string[]>([])
-    const [selectedColor, setSelectedColor] = useState<string>('')
-    const [selectedSize, setSelectedSize] = useState<string>('')
+    const [selectedColor, setSelectedColor] = useState<ProductCartProps>(productCartInitialValues)
+    const [selectedSize, setSelectedSize] = useState<ProductCartProps>(productCartInitialValues)
     const [selectedQuantity, setSelectedQuantity] = useState<number>(0)
     const [error, setError] = useState<string>('')
 
@@ -22,19 +23,23 @@ const useProduct = () => {
         getData()
     }, [])
 
+    useEffect(() => {
+        wishlistCheck()
+    }, [productData, sideProducts])
+
     // Update sizes and images upon the selected color
     useEffect(() => {
         if(productData.colors) {
             // Update sizes
             for(let color of productData.colors) {
-                if(color.colorId._id === selectedColor) {
+                if(color.colorId._id === selectedColor.id) {
                     setSizes(color.sizes)
                 }
             }
 
             // Update images
             for(let color of productData.colors) {
-                if(color.colorId._id === selectedColor) {
+                if(color.colorId._id === selectedColor.id) {
                     setSelectedImages([
                         color.images[0],
                         color.images[1]
@@ -48,9 +53,9 @@ const useProduct = () => {
     useEffect(() => {
         if(productData.colors) {
             for(let color of productData.colors) {
-                if(color.colorId._id === selectedColor) {
+                if(color.colorId._id === selectedColor.id) {
                     for(let size of sizes) {
-                        if(size.sizeId._id === selectedSize) {
+                        if(size.sizeId._id === selectedSize.id) {
                             setQuantity(size.quantity)
                         }
                     }
@@ -66,14 +71,34 @@ const useProduct = () => {
             const SideProductData = await getHandler(Urls.products)
             setProductData(res)
             setSideProducts(SideProductData.filter((item: any) => item.categoryId === res.categoryId && item._id !== res._id))
-            setSelectedColor(res.colors[0].colorId._id)
-            setSelectedSize(res.colors[0].sizes[0].sizeId._id)
+            setSelectedColor({
+                id: res.colors[0].colorId._id,
+                value: res.colors[0].colorId.name
+            })
+            setSelectedSize({
+                id: res.colors[0].sizes[0].sizeId._id,
+                value: res.colors[0].sizes[0].sizeId.name
+            })
         }
         catch (error) {
             console.log(error)
         }
         finally {
             setIsLoading(false)
+        }
+    }
+    
+    const wishlistCheck = () => {
+        if(localStorage.getItem('zero7_wishlist')) {
+            const icons = Array.from(document.getElementsByClassName("wishlistIcons")) as HTMLElement[]
+            const wishlist: any = JSON.parse(localStorage.getItem('zero7_wishlist')!)
+            for(let icon of icons) {
+                for(let wish of wishlist) {
+                    if(icon.getAttribute('data-id') === wish) {
+                        icon.style.backgroundColor = colors.primary.main
+                    }
+                }
+            }
         }
     }
 
@@ -84,7 +109,10 @@ const useProduct = () => {
             box.classList.remove('boxActive')
         }
         event.target.classList.add('boxActive')
-        setSelectedColor(event.target.getAttribute('data-id'))
+        setSelectedColor({
+            id: event.target.getAttribute('data-id'),
+            value: event.target.getAttribute('data-value')
+        })
     }
 
     const handleSelectSize = (event: any) => {
@@ -93,7 +121,10 @@ const useProduct = () => {
             box.classList.remove('boxActive')
         }
         event.currentTarget.classList.add('boxActive')
-        setSelectedSize(event.target.getAttribute('data-id'))
+        setSelectedSize({
+            id: event.currentTarget.getAttribute('data-id'),
+            value: event.currentTarget.getAttribute('data-value')
+        })
     }
 
     const handleSelectQuantity = (event: any) => {
@@ -106,11 +137,11 @@ const useProduct = () => {
         if(localStorage.getItem('zero7_wishlist')) {
             const wishlist = JSON.parse(localStorage.getItem('zero7_wishlist')!)
             if(!wishlist.find((item: string) => item === _id)) {   
-                event.target.style.backgroundColor = colors.primary.main
+                event.currentTarget.style.backgroundColor = colors.primary.main
                 wishlist.push(_id)
                 localStorage.setItem('zero7_wishlist', JSON.stringify(wishlist))
             }else {
-                event.target.style.backgroundColor = 'transparent'
+                event.currentTarget.style.backgroundColor = 'transparent'
                 const index = wishlist.indexOf(_id);
                 if (index > -1) {
                     wishlist.splice(index, 1);
@@ -121,6 +152,7 @@ const useProduct = () => {
         }else {
             const wishlist = []
             wishlist.push(_id)
+            event.currentTarget.style.backgroundColor = colors.primary.main
             localStorage.setItem('zero7_wishlist', JSON.stringify(wishlist))
         }
     }
@@ -142,14 +174,20 @@ const useProduct = () => {
         if(validator()) {
             const data = {
                 _id: productData._id,
-                color: selectedColor,
-                sizes: selectedSize,
+                name: productData.name,
+                image: selectedImages[0],
+                color: selectedColor.value,
+                size: selectedSize.value,
                 quantity: quantity
             }
 
             if(localStorage.getItem('zero7_cartProducts')) {
                 const cartProducts = JSON.parse(localStorage.getItem('zero7_cartProducts')!)
-                if(!cartProducts.find((item: any) => item._id === productData._id)) {   
+                if(!cartProducts.find((item: any) => 
+                    item._id === productData._id && 
+                    item.color === data.color &&
+                    item.size === data.size
+                )) {   
                     cartProducts.push(data)
                     localStorage.setItem('zero7_cartProducts', JSON.stringify(cartProducts))
                 } else {

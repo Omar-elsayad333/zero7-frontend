@@ -110,11 +110,11 @@ const useShop = () => {
         if(localStorage.getItem('zero7_wishlist')) {
             const wishlist = JSON.parse(localStorage.getItem('zero7_wishlist')!)
             if(!wishlist.find((item: string) => item === _id)) {   
-                event.target.style.backgroundColor = colors.primary.main
+                event.currentTarget.style.backgroundColor = colors.primary.main
                 wishlist.push(_id)
                 localStorage.setItem('zero7_wishlist', JSON.stringify(wishlist))
             }else {
-                event.target.style.backgroundColor = 'transparent'
+                event.currentTarget.style.backgroundColor = 'transparent'
                 const index = wishlist.indexOf(_id);
                 if (index > -1) {
                     wishlist.splice(index, 1);
@@ -125,6 +125,7 @@ const useShop = () => {
         }else {
             const wishlist = []
             wishlist.push(_id)
+            event.currentTarget.style.backgroundColor = colors.primary.main
             localStorage.setItem('zero7_wishlist', JSON.stringify(wishlist))
         }
     }

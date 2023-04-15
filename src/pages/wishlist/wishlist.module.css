@@ -39,12 +39,6 @@
   justify-content: center;
 }
 
-@media screen and (max-width: 1000px) {
-  .shopVideo {
-    width: 100%;
-  }
-}
-
 @media screen and (max-width: 500px) {
   .cardsContainer {
     gap: 30px;
