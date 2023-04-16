@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography'
 const cart: React.FC = () => {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { data } = useCart()
+    const { data, states, actions } = useCart()
 
     return (
         <div className={`${style.container} grid`}>
@@ -26,7 +26,7 @@ const cart: React.FC = () => {
             </Typography>
             {
                 data.productsData.length > 0 ?
-                <>
+                <div className={style.contentLayout}>
                     <div className={style.productsContainer}>    
                         {
                             data.productsData.map((item: any, index: number) => (
@@ -60,9 +60,40 @@ const cart: React.FC = () => {
                         }
                     </div>
                     <div className={style.checkoutContainer}>
-
+                        <Typography variant='h3' color={'primary'}>
+                            Order Summary
+                        </Typography>
+                        <div className={style.checkoutContent}>
+                            <Typography variant='h4' color={'primary'}>
+                                Subtotal
+                            </Typography>
+                            <Typography variant='h5' color={'primary'}>
+                                {`EGP ${states.productsSubtotal}`}
+                            </Typography>
+                        </div>
+                        <div className={style.checkoutContent}>
+                            <Typography variant='h4' color={'primary'}>
+                                Delivery
+                            </Typography>
+                            <Typography variant='h5' color={'primary'}>
+                                {`EGP 60`}
+                            </Typography>
+                        </div>
+                        <hr className={style.breaker} />
+                        <div className={style.checkoutContent}>
+                            <Typography variant='h3' color={'primary'}>
+                                Order Total
+                            </Typography>
+                            <Typography variant='h4' color={'primary'}>
+                                {`EGP ${states.productsTotal}`}
+                            </Typography>
+                        </div>
+                            <PrimaryButton 
+                                content='CHECKOUT'
+                                onClick={actions.checkout}
+                            />
                     </div>
-                </> :
+                </div> :
                 <div className={style.emptyMes}>
                     <Typography variant='h3' color={'primary'}>
                         Your cart is empty.

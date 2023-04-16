@@ -1,12 +1,13 @@
 import Urls from 'constants/urls'
 import { colors } from 'styles/colors'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useLayoutEffect, useState, useEffect } from 'react'
 import { getByIdHandler, getHandler } from 'handlers/requestHandlers'
 import { ProductCartProps, productCartInitialValues } from 'interfaces/productCart'
 
 const useProduct = () => {
 
+    const navigate = useNavigate()
     const { id }: any = useParams();
     const [productData, setProductData] = useState<any>({})
     const [sideProducts, setSideProducts] = useState<any[]>([])
@@ -57,6 +58,7 @@ const useProduct = () => {
                     for(let size of sizes) {
                         if(size.sizeId._id === selectedSize.id) {
                             setQuantity(size.quantity)
+                            console.log('jfoasdjf')
                         }
                     }
                 }
@@ -178,7 +180,8 @@ const useProduct = () => {
                 image: selectedImages[0],
                 color: selectedColor.value,
                 size: selectedSize.value,
-                quantity: quantity
+                price: productData.price,
+                quantity: selectedQuantity
             }
 
             if(localStorage.getItem('zero7_cartProducts')) {
@@ -190,6 +193,7 @@ const useProduct = () => {
                 )) {   
                     cartProducts.push(data)
                     localStorage.setItem('zero7_cartProducts', JSON.stringify(cartProducts))
+                    navigate('/cart')
                 } else {
                     setError('Already added to cart')
                 }
