@@ -1,7 +1,6 @@
 import { Routes } from 'routes/Routes'
 import { Link } from 'react-router-dom'
 import style from './poductCard.module.css'
-import test1 from 'assets/images/test1.jpg'
 
 // MUI
 import Typography from '@mui/material/Typography'
@@ -16,7 +15,7 @@ const ProductCard: React.FC<Props> = ({ data, actions }) => {
         <>
             <div className={style.productImageContainer}>
                 <Link to={`${Routes.product}${data._id}`} className='notLink'>
-                    <img loading='lazy' src={test1} alt={data.name} className={style.productImage} />
+                    <img loading='lazy' src={data.colors[0].images[0]} alt={data.name} className={style.productImage} />
                 </Link>
             </div>
             <div className={style.detailsContainer}>

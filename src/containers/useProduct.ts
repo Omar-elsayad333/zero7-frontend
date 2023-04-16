@@ -58,7 +58,6 @@ const useProduct = () => {
                     for(let size of sizes) {
                         if(size.sizeId._id === selectedSize.id) {
                             setQuantity(size.quantity)
-                            console.log('jfoasdjf')
                         }
                     }
                 }
