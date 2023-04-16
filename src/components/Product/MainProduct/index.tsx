@@ -64,6 +64,7 @@ const MainProduct: React.FC<Props> = ({ data, states, actions }) => {
                             data.sizes.map((item: any, index: number) => (
                                 <div 
                                     key={item.sizeId._id}
+                                    data-id={item.sizeId._id}
                                     data-value={item.sizeId.name}
                                     onClick={(e) => actions.handleSelectSize(e)}
                                     className={`${style.sizeOuter} sizeBox ${index === 0 ? 'boxActive' : null}`}
