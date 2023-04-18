@@ -1,3 +1,4 @@
+import { ComponentType } from 'react'
 import style from './shop.module.css'
 import useShop from 'containers/useShop'
 import FilterWidget from 'components/filterWidget'
@@ -7,7 +8,7 @@ import LogoLoading from 'components/Loading/LogoLoading'
 // MUI
 import Typography from '@mui/material/Typography'
 
-const Shop: React.FC  = () => {
+const Shop: ComponentType = () => {
 
     const { data, states, actions} = useShop()
 

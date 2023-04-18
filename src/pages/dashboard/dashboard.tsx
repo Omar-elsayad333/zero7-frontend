@@ -1,8 +1,9 @@
+import { ComponentType } from 'react';
 
 // MUI
 import Box from '@mui/material/Box'
 
-const Dashboard = () => {
+const Dashboard: ComponentType = () => {
     return (
         <Box>
             dashboard

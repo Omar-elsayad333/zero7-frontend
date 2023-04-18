@@ -24,9 +24,8 @@ import AboutUs from 'pages/aboutUs';
 import Product from 'pages/product';
 import Wishlist from 'pages/wishlist';
 import NotFound from 'pages/notFound';
-import Dashboard from 'pages/dashboard';
+import Dashboard from 'pages/dashboard/dashboard';
 import AppLayout from 'layouts/AppLayout';
-import ResetPassword from 'pages/resetPassword';
 import DashboardLayout from 'layouts/dashboardLayout';
 
 const router = createBrowserRouter(
@@ -47,7 +46,6 @@ const router = createBrowserRouter(
                 {/* APP LOG PAGES */}
                 <Route path={Routes.login} element={<Login />} />
                 <Route path={Routes.register} element={<SignUp />} />
-                <Route path={Routes.resetPassword} element={<ResetPassword />} />
             </Route>
 
             {/* DASHBOARD PAGES */}

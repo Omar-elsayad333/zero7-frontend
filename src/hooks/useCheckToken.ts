@@ -46,7 +46,7 @@ const useCheckToken = () => {
 
     // Check for the expireation date of refresh token
     const checkRefreshTokensExp = () => {
-        const refreshTokenExpireAt: string | null = localStorage.getItem('zero7_access_exp') || sessionStorage.getItem('zero7_access_exp') || null;
+        const refreshTokenExpireAt: string | null = localStorage.getItem('zero7_refresh_exp') || sessionStorage.getItem('zero7_refresh_exp') || null;
         
         // Create a Date object from the API date string
         const apiDate = new Date(refreshTokenExpireAt!);
@@ -65,7 +65,7 @@ const useCheckToken = () => {
     const getNewTokens = async () => {
         let rememberMe = true
         localStorage.getItem('zero7_access_token') ? rememberMe = true : rememberMe = false
-    
+
         const tokens = {
             accessToken: localStorage.getItem('zero7_access_token') || sessionStorage.getItem('zero7_access_token'),
             refreshToken: localStorage.getItem('zero7_refresh_token') || sessionStorage.getItem('zero7_refresh_token')

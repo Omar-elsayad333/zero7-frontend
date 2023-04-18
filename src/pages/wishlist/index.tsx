@@ -1,3 +1,4 @@
+import { ComponentType } from 'react'
 import { colors } from 'styles/colors'
 import { Routes } from 'routes/Routes'
 import { Link } from 'react-router-dom'
@@ -10,7 +11,7 @@ import PrimaryButton from 'components/Buttons/PrimaryButton'
 // MUI
 import Typography from '@mui/material/Typography'
 
-const Wishlist = () => {
+const Wishlist: ComponentType = () => {
 
     const { data, states, actions} = useWishlist()
 

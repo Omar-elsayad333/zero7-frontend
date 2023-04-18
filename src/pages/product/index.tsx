@@ -1,10 +1,11 @@
+import { ComponentType } from 'react'
 import style from './product.module.css'
 import useProduct from "containers/useProduct";
 import LogoLoading from "components/Loading/LogoLoading";
 import MainProduct from "components/Product/MainProduct";
 import SideProducts from 'components/Product/SideProducts';
 
-const ProfileDetails: React.FC  = () => {
+const ProfileDetails: ComponentType  = () => {
 
     const { data, states, actions } = useProduct()
 
