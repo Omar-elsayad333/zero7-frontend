@@ -1,4 +1,4 @@
-
+import { withAuth } from 'routes/withRouts'
 // MUI
 import Box from '@mui/material/Box'
 
@@ -10,4 +10,4 @@ const Profile = () => {
     )
 }
  
-export default Profile;
+export default withAuth(Profile);
