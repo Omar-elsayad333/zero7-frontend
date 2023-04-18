@@ -1,10 +1,11 @@
+import { ComponentType } from "react";
 import Landing from "components/Home/Landing";
 import { useUser } from "contexts/userContext";
 import Section1 from "components/Home/Section1";
 import Section2 from "components/Home/Section2";
 import LogoLoading from "components/Loading/LogoLoading";
 
-const Home = () => {
+const Home: ComponentType = () => {
     const { userState } = useUser()
     return (
         <>

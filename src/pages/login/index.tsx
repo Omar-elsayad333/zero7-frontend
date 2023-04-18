@@ -1,3 +1,4 @@
+import { ComponentType } from 'react'
 import style from './login.module.css'
 import { Routes } from 'routes/Routes'
 import { colors } from 'styles/colors'
@@ -14,7 +15,7 @@ import SecondaryButton from 'components/Buttons/SecondaryButton'
 import Checkbox from '@mui/material/Checkbox'
 import Typography from '@mui/material/Typography'
 
-const Login: React.FC = () => {
+const Login: ComponentType = () => {
 
     const { state, pageError, actions } = useLogin()
 

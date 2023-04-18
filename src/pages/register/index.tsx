@@ -1,3 +1,4 @@
+import { ComponentType } from 'react'
 import { Routes } from 'routes/Routes';
 import { Link } from 'react-router-dom';
 import style from './register.module.css'
@@ -10,7 +11,7 @@ import SecondaryButton from 'components/Buttons/SecondaryButton';
 // MUI
 import Typography from '@mui/material/Typography';
 
-const Register: React.FC = () => {
+const Register: ComponentType = () => {
 
     const { state, actions } = useSignup()
 
