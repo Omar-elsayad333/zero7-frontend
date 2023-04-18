@@ -1,5 +1,6 @@
+import useCheckToken from 'hooks/useCheckToken'
 import { userReducer } from 'reducers/userReducer'
-import { getRefreshToken, getUserData, storeUser } from 'handlers/userHandlers'
+import { getUserData,  } from 'handlers/userHandlers'
 import { createContext, useReducer, useContext, useEffect, useLayoutEffect } from 'react'
 import { initialState, UserContextType, UserProviderProps } from 'interfaces/userInterfaces'
 
@@ -12,6 +13,7 @@ const UserContext = createContext<UserContextType>({
 export const UserProvider = ({ children }: UserProviderProps) => {
 
     const [userState, userDispatch] = useReducer(userReducer, initialState);
+    const { checkTokens, checkAccessTokensExp, checkRefreshTokensExp, getNewTokens } = useCheckToken()
 
     useLayoutEffect(() => {
         userDispatch({
@@ -25,52 +27,19 @@ export const UserProvider = ({ children }: UserProviderProps) => {
         })
     }, [])
 
-    useLayoutEffect(() => {
-        const checkUser = async () => {
-            if(localStorage.getItem('zero7_access_token') || sessionStorage.getItem('zero7_access_token')) {
-                if(userState.tokens.accessTokenExpireAt! < new Date().toISOString()) {
-                    await getUser(userState.tokens.accessToken!)
-                } else if (localStorage.getItem('zero7_access_token') || sessionStorage.getItem('zero7_access_token')) {
-                    console.log('false')
-                    if(userState.tokens.refreshTokenExpireAt! > new Date().toISOString()) {   
-                        let rememberMe = true
-                        const tokens = {
-                            accessToken: userState.tokens.accessToken,
-                            refreshToken: userState.tokens.refreshToken
-                        }
-                        localStorage.getItem('zero7_access_token') ? rememberMe = true : rememberMe = false
-                        try {
-                            userDispatch({type: 'setLoading'})
-                            const newTokens: any = await getRefreshToken(tokens)
-                            await getUser(newTokens.accessToken)
-                            storeUser(newTokens, rememberMe)
-                            userDispatch({
-                                type: 'setTokens',
-                                payload: {
-                                    accessToken: newTokens.accessToken,
-                                    refreshToken: newTokens.refreshToken,
-                                    accessTokenExpireAt: newTokens.accessTokenExpireAt,
-                                    refreshTokenExpireAt: newTokens.refreshTokenExpireAt
-                                }
-                            })
-                        }
-                        catch (error) {
-                            console.log(error)
-                        }
-                        finally {
-                            userDispatch({type: 'setLoading'})
-                        }
-                    }
+    useEffect(() => {
+        if (checkTokens()) {
+            if (!checkAccessTokensExp()) {
+                if (checkRefreshTokensExp()) {
+                    getNewTokens()
+                }
+            }else {
+                if(userState.tokens.accessToken) {
+                    getUser(userState.tokens.accessToken)
                 }
             }
         }
-
-        checkUser()
     }, [userState.tokens])
-
-    useEffect(() => {
-        console.log(userState)
-    }, [userState])
 
     const getUser = async (token: string) => {
         try {
