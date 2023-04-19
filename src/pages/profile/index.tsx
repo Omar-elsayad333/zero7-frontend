@@ -1,4 +1,5 @@
 import { ComponentType } from 'react'
+import { classes } from './muiClasses'
 import { colors } from 'styles/colors'
 import style from './profle.module.css'
 import TabPanel from 'components/TabPanel'
@@ -28,8 +29,8 @@ const Profile: ComponentType = () => {
             >
                 {`Welcome ${userState.user?.name}`}
             </Typography>
-            <Box sx={{ width: '100%' }}>
-                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <Box sx={classes}>
+                <Box>
                     <Tabs value={states.value} onChange={actions.handleChange} aria-label="basic tabs example">
                         <Tab label="Profile Details" {...actions.a11yProps(0)} />
                         <Tab label="Your Orders" {...actions.a11yProps(1)} />
@@ -37,7 +38,32 @@ const Profile: ComponentType = () => {
                     </Tabs>
                 </Box>
                 <TabPanel value={states.value} index={0}>
-                    Profile Details    
+                    <div className={style.content}>
+                        <div>
+                            <Typography marginBottom={1} variant='h4' color={colors.dark.main}>
+                                Name 
+                            </Typography>
+                            <Typography paddingLeft={4} variant='h5' color={'primary'}>
+                                {userState.user?.name}
+                            </Typography>
+                        </div>
+                        <div>
+                            <Typography marginBottom={1} variant='h4' color={colors.dark.main}>
+                                Email Address 
+                            </Typography>
+                            <Typography paddingLeft={4} variant='h5' color={'primary'}>
+                                {userState.user?.email}
+                            </Typography>
+                        </div>
+                        <div>
+                            <Typography marginBottom={1} variant='h4' color={colors.dark.main}>
+                                Phone Number 
+                            </Typography>
+                            <Typography paddingLeft={4} variant='h5' color={'primary'}>
+                                {userState.user?.phoneNumber}
+                            </Typography>
+                        </div>
+                    </div>  
                 </TabPanel>
                 <TabPanel value={states.value} index={1}>
                     Your Orders
