@@ -1,11 +1,16 @@
 import { useReducer } from "react";
-import { registerUser } from "handlers/userHandlers";
+import { Routes } from "routes/Routes";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "contexts/userContext";
 import { registerReducer } from "reducers/registerReducer";
+import { registerUser, storeUser } from "handlers/userHandlers";
 import { SignUpState, registerInitialState } from 'interfaces/registerInterface'
 
 const useSignup = () => {
 
-    const [state, dispatch] = useReducer(registerReducer, registerInitialState);
+    const navigate = useNavigate()
+    const { userDispatch, getUser } = useUser()
+    const [state, dispatch] = useReducer(registerReducer, registerInitialState)
 
     // Controll inputs
     const handleChange = (event: any) => {
@@ -15,7 +20,7 @@ const useSignup = () => {
             field: name,
             value: event.target.value
         });
-    };
+    }
 
     // Show and hide password
     const handleShowPass = (event: any) => {
@@ -24,7 +29,7 @@ const useSignup = () => {
             type: 'showPass',
             field: name,
         });
-    };
+    }
 
     // Validate data before submit it
     const validator = () => {
@@ -65,7 +70,7 @@ const useSignup = () => {
     // Collect data to submit it
     const collector = () => {
         const encodedPhoneNumber  = encodeURIComponent('+'+state.fields.phoneNumber.value)
-        console.log(encodedPhoneNumber)
+
         const data = {
             name: state.fields.name.value,
             email: state.fields.email.value.trim(),
@@ -73,6 +78,7 @@ const useSignup = () => {
             password: state.fields.password.value.trim(),
             confirmPassword: state.fields.confirmPassword.value.trim()
         }
+
         return data
     }
 
@@ -83,7 +89,24 @@ const useSignup = () => {
             try {
                 dispatch({type: 'submit'})
                 const data = collector()
-                await registerUser(data)
+                const res = await registerUser(data)
+                userDispatch({
+                    type: 'setTokens',
+                    payload: {
+                        accessToken: res.accessToken,
+                        refreshToken: res.refreshToken,
+                        accessTokenExpireAt: res.accessTokenExpireAt,
+                        refreshTokenExpireAt: res.refreshTokenExpireAt
+                    }
+                })
+                storeUser({
+                    accessToken: res.accessToken,
+                    refreshToken: res.refreshToken,
+                    accessTokenExpireAt: res.accessTokenExpireAt,
+                    refreshTokenExpireAt: res.refreshTokenExpireAt
+                })
+                await getUser(res.accessToken)
+                navigate(Routes.home)
             }
             catch (err) {
                 
@@ -92,7 +115,7 @@ const useSignup = () => {
                 dispatch({type: 'success'})
             }
         }
-    };
+    }
 
     return (
         {

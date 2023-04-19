@@ -86,7 +86,7 @@ const Login: ComponentType = () => {
                         type='submit'
                         content='log in'
                     />
-                    <Link to={`/${Routes.register}`} style={{width: '100%'}}>
+                    <Link to={`${Routes.register}`} style={{width: '100%'}}>
                         <SecondaryButton
                             fullWidth
                             content='sign up'
