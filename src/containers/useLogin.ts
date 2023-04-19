@@ -1,4 +1,5 @@
 import { useReducer, useState } from "react";
+import { Routes } from "routes/Routes";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "contexts/userContext";
 import { loginUser, storeUser } from "handlers/userHandlers";
@@ -84,7 +85,7 @@ const useLogin = () => {
                 })
                 storeUser(userData, state.remeberMe.value)
                 await getUser(userData.accessToken)
-                navigate(-1)
+                navigate(Routes.home)
             } 
             catch (err: any) {
                 console.log(err.message)

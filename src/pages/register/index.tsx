@@ -3,6 +3,7 @@ import { Routes } from 'routes/Routes';
 import { Link } from 'react-router-dom';
 import style from './register.module.css'
 import useSignup from 'containers/useSignup';
+import Loading from 'components/Loading/Loading';
 import PrimaryInput from 'components/Inputs/PrimaryInput';
 import PasswordInput from 'components/Inputs/PasswordInput';
 import PrimaryButton from 'components/Buttons/PrimaryButton';
@@ -17,11 +18,14 @@ const Register: ComponentType = () => {
 
     return (
         <div className={`${style.container} grid`}>
+            {
+                state.loading && 
+                <Loading />
+            }
             <form onSubmit={actions.handleSubmit} className={style.formContainer} >
                 <Typography variant='h3' textAlign={'center'} fontWeight={700} color='primary'>
                     Sign Up for Zero7
                 </Typography>
-                {state.loading && <Typography variant='h4' color={'warrning'}>loading</Typography>}
                 <div className={style.inputsContainer}>
                     <PrimaryInput 
                         type='text'
@@ -73,11 +77,13 @@ const Register: ComponentType = () => {
                 </div>
                 <div className={style.buttonsContainer}>    
                     <PrimaryButton
+                        fullWidth
                         type='submit'
                         content='sign up'
                     />
-                    <Link to={`/${Routes.login}`}>
+                    <Link to={`${Routes.login}`} style={{width: '100%'}}>
                         <SecondaryButton
+                            fullWidth
                             content='log in'
                         />
                     </Link>
