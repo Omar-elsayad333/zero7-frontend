@@ -1,5 +1,5 @@
 import { useUser } from "contexts/userContext"
-import { getRefreshToken, storeUser } from "handlers/userHandlers"
+import { getRefreshToken, logoutUser, storeUser } from "handlers/userHandlers"
 
 const useCheckToken = () => {
 
@@ -55,6 +55,7 @@ const useCheckToken = () => {
         const currentDate = new Date();
 
         if (currentDate.getTime() >= apiDate.getTime()) {
+            logoutUser()
             return false
         }
     
@@ -89,6 +90,7 @@ const useCheckToken = () => {
         }
         catch (error) {
             console.log(error)
+            logoutUser()
             return false
         } 
         finally {

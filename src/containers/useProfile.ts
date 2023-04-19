@@ -11,8 +11,8 @@ const useProfile = () => {
         };
     }
     
-    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        console.log(event)
+    const handleChange = (event: any, newValue: number) => {
+        event.target.style.background = 'transparent'
         setValue(newValue);
     };
 
