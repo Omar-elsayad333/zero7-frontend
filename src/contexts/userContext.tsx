@@ -1,6 +1,6 @@
 import useCheckToken from 'hooks/useCheckToken'
 import { userReducer } from 'reducers/userReducer'
-import { getUserData,  } from 'handlers/userHandlers'
+import { getUserData, logoutUser,  } from 'handlers/userHandlers'
 import { createContext, useReducer, useContext, useEffect, useLayoutEffect } from 'react'
 import { initialState, UserContextType, UserProviderProps } from 'interfaces/userInterfaces'
 
@@ -51,6 +51,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
             })
         }
         catch (error) { 
+            logoutUser()
             throw Error('No such user')
         }
         finally {
