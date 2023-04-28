@@ -1,13 +1,15 @@
 .container {
     width: 100%;
-    height: calc(100vh - 75px);
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url('assets/images/background.jpeg');
+    min-height: calc(100vh - 75px);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
+        url('assets/images/background.jpeg');
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: space-around;
-    overflow: hidden; 
+    overflow: hidden;
     position: relative;
 }
 
@@ -41,6 +43,7 @@
 }
 
 .imageContainer {
+    max-width: 100%;
     z-index: 10;
     position: relative;
     animation: opacity 2s ease-in-out;
@@ -48,14 +51,15 @@
 
 .statueImage {
     z-index: 1;
+    max-width: 100%;
 }
 
 .imageBackground {
     width: 400px;
     height: 400px;
     position: absolute;
-    top: 115px;
-    left: -65px;
+    top: 103px;
+    /* left: -65px; */
     z-index: -1;
     transform: rotate(45deg);
     background-color: black;
@@ -67,21 +71,6 @@
 @media screen and (max-width: 1000px) {
     .container {
         justify-content: space-between;
-    }
-    
-    .box {
-        width: 100px;
-    }
-
-    .textContainer {
-        top: 25%;
-        position: absolute;
-    }
-
-    .box {
-        position: absolute;
-        right: 15%;
-        bottom: 10%;
     }
 }
 
@@ -103,11 +92,19 @@
 }
 
 @keyframes shadow {
-    0%   { box-shadow: none;}
-    100% { box-shadow: 0px 0px 40px var(--primary-color);}
+    0% {
+        box-shadow: none;
+    }
+    100% {
+        box-shadow: 0px 0px 40px var(--primary-color);
+    }
 }
 
 @keyframes opacity {
-    0%   { opacity: 0;}
-    100% { opacity: 1;}
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
