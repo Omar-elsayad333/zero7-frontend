@@ -1,34 +1,26 @@
 import { ComponentType } from 'react'
 import style from './product.module.css'
-import useProduct from "containers/useProduct";
-import LogoLoading from "components/Loading/LogoLoading";
-import MainProduct from "components/Product/MainProduct";
-import SideProducts from 'components/Product/SideProducts';
+import useProduct from 'containers/useProduct'
+import LogoLoading from 'components/Loading/LogoLoading'
+import MainProduct from 'components/Product/MainProduct'
+import SideProducts from 'components/Product/SideProducts'
 
-const ProfileDetails: ComponentType  = () => {
-
+const ProfileDetails: ComponentType = () => {
     const { data, states, actions } = useProduct()
 
     return (
         <div className={`${style.container} grid`}>
-            {
-                states.isLoading ?
-                <LogoLoading /> : 
+            {states.isLoading ? (
+                <LogoLoading />
+            ) : (
                 <>
-                    <MainProduct 
-                        data={data}
-                        states={states}
-                        actions={actions}
-                    />
+                    <MainProduct data={data} states={states} actions={actions} />
                     <hr className={style.breaker} />
-                    <SideProducts
-                        data={data.sideProducts}
-                        actions={actions.addToWishlist}
-                    />
+                    <SideProducts data={data.sideProducts} actions={actions.addToWishlist} />
                 </>
-            }
+            )}
         </div>
     )
 }
 
-export default ProfileDetails;
+export default ProfileDetails

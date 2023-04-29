@@ -1,15 +1,14 @@
-import { colors } from './colors';
+import { colors } from './colors'
 
 // MUI
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles'
 
 type IProps = {
-    children: JSX.Element | JSX.Element[];
-};
+    children: JSX.Element | JSX.Element[]
+}
 
 // them component
 const ThemeApp: React.FC<IProps> = ({ children }) => {
-
     const colorsTheme = createTheme({
         palette: {
             primary: {
@@ -20,38 +19,38 @@ const ThemeApp: React.FC<IProps> = ({ children }) => {
             },
             secondary: {
                 main: colors.secondary.main,
-                light: colors.secondary.light,  
+                light: colors.secondary.light,
                 dark: colors.secondary.dark,
-                contrastText: colors.secondary.contrastText,    
+                contrastText: colors.secondary.contrastText,
             },
             success: {
                 main: colors.success.main,
-                light: colors.success.light,  
+                light: colors.success.light,
                 dark: colors.success.dark,
-                contrastText: colors.success.contrastText,  
+                contrastText: colors.success.contrastText,
             },
             error: {
                 main: colors.error.main,
-                light: colors.error.light,  
+                light: colors.error.light,
                 dark: colors.error.dark,
-                contrastText: colors.error.contrastText,    
+                contrastText: colors.error.contrastText,
             },
             warning: {
                 main: colors.warning.main,
-                light: colors.warning.light,  
+                light: colors.warning.light,
                 dark: colors.warning.dark,
-                contrastText: colors.warning.contrastText,  
+                contrastText: colors.warning.contrastText,
             },
             info: {
                 main: colors.info.main,
-                light: colors.info.light,  
+                light: colors.info.light,
                 dark: colors.info.dark,
-                contrastText: colors.info.contrastText,  
+                contrastText: colors.info.contrastText,
             },
         },
         typography: {
-            fontFamily: 'Crimson Text, serif',
             h1: {
+                fontFamily: 'Playfair Display, serif',
                 fontWeight: '700',
                 fontSize: '40px',
                 '@media (max-width:600px)': {
@@ -59,6 +58,7 @@ const ThemeApp: React.FC<IProps> = ({ children }) => {
                 },
             },
             h2: {
+                fontFamily: 'Playfair Display, serif',
                 fontWeight: '700',
                 fontSize: '30px',
                 '@media (max-width:600px)': {
@@ -66,43 +66,43 @@ const ThemeApp: React.FC<IProps> = ({ children }) => {
                 },
             },
             h3: {
+                fontFamily: 'Roboto, sans-serif',
                 fontWeight: '400',
                 fontSize: '25px',
                 '@media (max-width:600px)': {
-                    fontSize: '20px',        
+                    fontSize: '20px',
                 },
             },
             h4: {
+                fontFamily: 'Roboto, sans-serif',
                 fontWeight: '400',
                 fontSize: '20px',
                 '@media (max-width:600px)': {
                     fontSize: '16px',
-                    fontWeight: '700',       
+                    fontWeight: '700',
                 },
             },
             h5: {
+                fontFamily: 'Roboto, sans-serif',
                 fontWeight: '400',
                 fontSize: '18px',
                 '@media (max-width:600px)': {
                     fontSize: '14px',
-                    fontWeight: '700',       
+                    fontWeight: '700',
                 },
             },
             h6: {
+                fontFamily: 'Roboto, sans-serif',
                 fontWeight: '700',
                 fontSize: '14px',
                 '@media (max-width:600px)': {
-                    fontSize: '12px',       
+                    fontSize: '12px',
                 },
             },
         },
-    });
+    })
 
-    return (
-        <ThemeProvider theme={colorsTheme} >
-            {children}
-        </ThemeProvider>
-    )
-};
+    return <ThemeProvider theme={colorsTheme}>{children}</ThemeProvider>
+}
 
-export default ThemeApp;
+export default ThemeApp
