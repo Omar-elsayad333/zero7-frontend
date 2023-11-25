@@ -1,4 +1,5 @@
 import App from './App'
+import 'styles/global.css'
 import ReactDOM from 'react-dom/client'
 import { UserProvider } from 'contexts/userContext'
 import { GoogleOAuthProvider } from '@react-oauth/google'
