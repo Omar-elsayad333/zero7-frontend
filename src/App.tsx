@@ -27,6 +27,7 @@ import NotFound from 'pages/notFound'
 import Dashboard from 'pages/dashboard/dashboard'
 import AppLayout from 'layouts/AppLayout'
 import DashboardLayout from 'layouts/dashboardLayout'
+import Test from 'pages/test'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -41,6 +42,7 @@ const router = createBrowserRouter(
         <Route path={Routes.profile} element={<Profile />} />
         <Route path={Routes.notAuth} element={<NotAuth />} />
         <Route path={Routes.wishlist} element={<Wishlist />} />
+        <Route path={Routes.test} element={<Test />} />
         <Route path={Routes.notFound} element={<NotFound />} />
 
         {/* APP LOG PAGES */}
