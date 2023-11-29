@@ -22,7 +22,6 @@ import NotAuth from 'pages/notAuth'
 import Profile from 'pages/profile'
 import AboutUs from 'pages/aboutUs'
 import Product from 'pages/product'
-// import Test from 'pages/test'
 import Wishlist from 'pages/wishlist'
 import NotFound from 'pages/notFound'
 import Dashboard from 'pages/dashboard/dashboard'
@@ -42,7 +41,6 @@ const router = createBrowserRouter(
         <Route path={Routes.profile} element={<Profile />} />
         <Route path={Routes.notAuth} element={<NotAuth />} />
         <Route path={Routes.wishlist} element={<Wishlist />} />
-        {/* <Route path={Routes.test} element={<Test />} /> */}
         <Route path={Routes.notFound} element={<NotFound />} />
 
         {/* APP LOG PAGES */}
