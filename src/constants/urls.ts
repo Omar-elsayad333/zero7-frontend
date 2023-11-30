@@ -5,6 +5,8 @@ export default class Urls {
   static userData: string = '/user/userData'
   static refreshToken: string = '/user/refreshToken'
   static resetPassword: string = '/user/resetPassword'
+  static socialRegister: string = '/user/socialRegister'
+  static googleApi: string = 'https://www.googleapis.com/oauth2/v1/userinfo'
 
   // Product urls
   static products: string = '/products'

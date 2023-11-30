@@ -19,3 +19,13 @@ export const getByIdHandler = async (url: string, _id: string) => {
     throw Error(error.response.data.error)
   }
 }
+
+// Handle post request
+export const postHandler = async (url: string, data: any) => {
+  try {
+    const res = await axiosInstance.post(url, data)
+    return res.data
+  } catch (error: any) {
+    throw Error(error.response.data.error)
+  }
+}

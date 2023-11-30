@@ -1,4 +1,4 @@
-.secondaryButton {
+.googleButton {
     font-size: 16px;
     height: 52px;
     padding: 0 32px;
@@ -6,13 +6,17 @@
     border-radius: 15px;
     font-weight: 700;
     transition: .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
     text-transform: capitalize;
     color: var(--primary-color);
     background-color: transparent;
     border: 2px solid var(--primary-color);
 }
 
-.secondaryButton:hover {
+.googleButton:hover {
     color: var(--dark-color);
     background-color: var(--primary-color);
 }

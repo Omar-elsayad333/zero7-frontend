@@ -7,6 +7,7 @@ import useLogin from 'containers/useLogin'
 import { withPublic } from 'routes/withRouts'
 import Loading from 'components/Loading/Loading'
 import PrimaryInput from 'components/Inputs/PrimaryInput'
+import GoogleButton from 'components/Buttons/GoogleButton'
 import PasswordInput from 'components/Inputs/PasswordInput'
 import PrimaryButton from 'components/Buttons/PrimaryButton'
 import SecondaryButton from 'components/Buttons/SecondaryButton'
@@ -77,6 +78,11 @@ const Login: ComponentType = () => {
             </Typography>
           )}
           <PrimaryButton fullWidth type="submit" content="log in" />
+          <GoogleButton
+            fullWidth
+            clickEvent={actions.registerWithGoogle}
+            content="Log in with Google"
+          />
           <Link to={`${Routes.register}`} style={{ width: '100%' }}>
             <SecondaryButton fullWidth content="sign up" />
           </Link>
